@@ -102,11 +102,14 @@ namespace lab1 {
 			if (Input_num(s.n) == -1 || Input_num(s.m) == -1) {
 				return nullptr;
 			}
+			system("cls");
 			error = "Please, input positive values\n";
+			cin.clear()
 		} while (s.n < 1 || s.m < 1);
 		system("cls");
 
 		int n_values = 0;
+		system("cls");
 		std::cout << "Input number of elements in matrix" << std::endl;
 		std::cin >> n_values;
 		system("cls");
@@ -126,6 +129,7 @@ namespace lab1 {
 				}
 				system("cls");
 				error = "Index is out of range\n";
+				cin.clear()
 			} while ((a.x >= s.n) || (a.y >= s.m));
 			// вставка элемента
 			lines_mas = Insert(lines_mas, a, n_lines);
