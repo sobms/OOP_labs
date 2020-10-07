@@ -1,6 +1,6 @@
+#define _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING
 #include <iostream>
-#include "epicycloid.h"
-
+#include "../library/Epicicloid.h"
 
 int main() {
 	namespace epc = epicicloid1;

@@ -1,9 +1,10 @@
+#pragma once
 namespace epicicloid1 {
 	typedef struct point {
 		double x, y;
 		point(double x0 = 0, double y0 = 0) : x(x0), y(y0) {};
 	}point;
-	typedef struct border_rads{
+	typedef struct border_rads {
 		double r, R;
 	}border_rads;
 
@@ -38,3 +39,4 @@ namespace epicicloid1 {
 	};
 
 }
+
