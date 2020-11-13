@@ -33,7 +33,7 @@ namespace epicicloid1 {
 			border_rads rads; rads.R = R + r + d; rads.r = R + r - d; return rads;
 		}
 		double get_curv_rad(double angle) const;
-		const char* get_type() const;
+		int get_type() const;
 		double sect_area(double angle) const;
 		bool Is_astroid() const;
 	};

@@ -11,13 +11,13 @@ namespace epicicloid1 {
 	Epicicloid::Epicicloid() : r(1.0), R(1.0), d(1.0), p() {}
 	Epicicloid::Epicicloid(const point& p0, double r0, double R0, double d0) : p(p0) {
 		if (R0 < 0) { // разделить exeption, сделать для каждого условия+
-			throw std::exception("the negative value of radius R");
+			throw std::invalid_argument("the negative value of radius R");
 		}
 		if ((-1) * d0 > R0) {
-			throw std::exception("the negative value of d more then radius R");
+			throw std::length_error("the negative value of d more then radius R");
 		}
 		if ((-1) * r0 > R0) {
-			throw std::exception("the negative value of r more then radius R");
+			throw std::length_error("the negative value of r more then radius R");
 		}
 		this->R = R0;
 		this->d = d0;
@@ -25,13 +25,13 @@ namespace epicicloid1 {
 	}
 	Epicicloid::Epicicloid(double x0, double y0, double r0, double R0, double d0) : p(x0, y0) {
 		if (R0 < 0) {
-			throw std::exception("the negative value of radius R");
+			throw std::invalid_argument("the negative value of radius R");
 		}
 		if ((-1) * r0 > R0) {
-			throw std::exception("the negative value of r more then radius R");
+			throw std::length_error("the negative value of r more then radius R");
 		}
 		if ((-1) * d0 > R0)  {
-			throw std::exception("the negative value of d more then radius R");
+			throw std::length_error("the negative value of d more then radius R");
 		}
 		this->R = R0;
 		this->d = d0;
@@ -40,21 +40,21 @@ namespace epicicloid1 {
 	//set'теры
 	Epicicloid& Epicicloid::set_r(double r0) {
 		if ((-1) * r0 > R) {
-			throw std::exception("the negative value of r more then radius R");
+			throw std::length_error("the negative value of r more then radius R");
 		}
 		r = r0;
 		return *this;
 	}
 	Epicicloid& Epicicloid::set_d(double d0) {
 		if ((-1) * d0 > R) {
-			throw std::exception("the negative value of d more then radius R");
+			throw std::length_error("the negative value of d more then radius R");
 		}
 		d = d0;
 		return *this;
 	}
 	Epicicloid& Epicicloid::set_R(double R0) {
 		if (R0 < 0) {
-			throw std::exception("the negative value of radius R");
+			throw std::invalid_argument("the negative value of radius R");
 		}
 		R = R0;
 		return *this;
