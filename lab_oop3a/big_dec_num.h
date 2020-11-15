@@ -20,7 +20,7 @@ namespace lab_oop3 {
 		//getters
 		//others
 		const Big_dec_num Add(const Big_dec_num& s) const; // add number
-		const Big_dec_num Subtruct(const Big_dec_num& s) const; //subtract number
+		const Big_dec_num Subtract(const Big_dec_num& s) const; //subtract number
 		const Big_dec_num Div_ten() const; //division by ten
 		Big_dec_num To_add_code() const; // convert to additional code
 		std::ostream& Output(std::ostream& out) const; // output
