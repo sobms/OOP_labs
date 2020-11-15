@@ -33,8 +33,8 @@ int main()
 		"9. Output_number\n",
 	};
 	std::cout << "Enter number of option or '0' to exit from menu\n";
-	for (int i = 0; i < (sizeof(options) / sizeof(options[0])); i++) {
-		std::cout << options[i];
+	for (auto elem : options) {
+		std::cout << elem;
 	}
 	char request;
 	Big_decimal instance;
@@ -54,8 +54,8 @@ int main()
 			system("cls");
 		}
 		std::cout << "Enter number of option or '0' to exit from menu\n";
-		for (int i = 0; i < (sizeof(options) / sizeof(options[0])); i++) {
-			std::cout << options[i];
+		for (auto elem : options) {
+			std::cout << elem;
 		}
 	}
 
