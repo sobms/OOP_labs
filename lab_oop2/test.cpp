@@ -34,9 +34,9 @@ TEST(EpicicloidConstructor, InitConstructor2) {
 }
 TEST(EpicicloidConstructor, Exception) {
 	
-	ASSERT_THROW(epc::Epicicloid e1(0, 0, 4, -5, 4), std::exception); // проверить ожидаемый тип исключения +!???? сообщение как проверить
-	ASSERT_THROW(epc::Epicicloid e1(0, 0, -16, 10, -5), std::exception);
-	ASSERT_THROW(epc::Epicicloid e1(0, 0, 4, 12, -20), std::exception);
+	ASSERT_THROW(epc::Epicicloid e1(0, 0, 4, -5, 4), std::invalid_argument); // проверить ожидаемый тип исключения 
+	ASSERT_THROW(epc::Epicicloid e1(0, 0, -16, 10, -5), std::length_error);
+	ASSERT_THROW(epc::Epicicloid e1(0, 0, 4, 12, -20), std::length_error);
 }
 TEST(EpicicloidMethods, Setters) {
 	epc::Epicicloid a;
@@ -69,9 +69,9 @@ TEST(EpicicloidMethods, Setters) {
 	ASSERT_NEAR(8.0, a.get_p().x, approx_val);
 	ASSERT_NEAR(8.0, a.get_p().y, approx_val);
 
-	ASSERT_THROW(a.set_r(-6), std::exception);
-	ASSERT_THROW(a.set_d(-7), std::exception);
-	ASSERT_THROW(a.set_R(-1), std::exception);
+	ASSERT_THROW(a.set_r(-6), std::length_error);
+	ASSERT_THROW(a.set_d(-7), std::length_error);
+	ASSERT_THROW(a.set_R(-1), std::invalid_argument);
 }
 TEST(EpicicloidMethods, Selectors) { // дополнительные тесты с другими значениями+
 	epc::Epicicloid a(0, 0, 2, 5, 3);

@@ -25,46 +25,93 @@ namespace lab_oop3 {
 		std::cout << "Please enter a long int to initialize a number\n";
 		long n;
 		n = get_value();
+		try // переместить во внешнюю функцию+
+		{
 		number.Big_dec_num::Big_dec_num(n);
+		}
+		catch (std::length_error& error)
+		{
+			std::cerr << error.what() << std::endl;
+			number.Big_dec_num::Big_dec_num();
+			return;
+		}
 	}
 	void Init_from_str(Big_dec_num& number) {
 		std::cout << "Please enter a string to initialize a number\n";
 		char str[47];
 		std::cin >> str;
-		//std::cin.clear();
+		try // переместить во внешнюю функцию+
+		{
 		number.Big_dec_num::Big_dec_num(str);
+		}
+		catch (std::invalid_argument& error) {
+			std::cerr << error.what() << std::endl;
+			number.Big_dec_num::Big_dec_num();
+			return;
+		}
+		catch (std::length_error& error)
+		{
+			std::cerr << error.what() << std::endl;
+			number.Big_dec_num::Big_dec_num();
+			return;
+		}
 	}
 	void Input_number(Big_dec_num& number) {
 		std::cout << "Please enter in istream your number\n";
-		number.Input(std::cin);		
-		//std::cin.clear();
+		try {
+			number.Input(std::cin);
+		}
+		catch (std::invalid_argument& err) {
+			std::cerr << err.what() << std::endl;
+			number.Big_dec_num::Big_dec_num();
+			return;
+		}
 	}
 	void Get_add_code(Big_dec_num& number) {
 		std::cout << "Getting additional code...\n";
 		Big_dec_num code = number.To_add_code();
 		code.Output(std::cout);
 	}
-	void Sum_numbers(Big_dec_num& number) {///???
+	void Sum_numbers(Big_dec_num& number) {
 		std::cout << "Please enter the second number\n";
-		long n;
 		Big_dec_num second;
-		n = get_value();
-		second = Big_dec_num(n);
+		char str[47];
+		std::cin >> str;
+		second = Big_dec_num(str);
 		std::cout << "Result of sum\n";
-		number.Add(second).Output(std::cout);
+		try {
+			Add(number, second).Output(std::cout);
+		}
+		catch (std::overflow_error& err) {
+			std::cerr << err.what() << std::endl;
+			return;
+		}
 	}
 	void Sub_numbers(Big_dec_num& number) {///???
 		std::cout << "Please enter the second number\n";
-		long n;
 		Big_dec_num second;
-		n = get_value();
-		second = Big_dec_num(n);
+		char str[47];
+		std::cin >> str;
+		second = Big_dec_num(str);
 		std::cout << "Result of subtraction\n";
-		number.Subtract(second).Output(std::cout);
+		try {
+			Subtract(number, second).Output(std::cout);
+		}
+		catch (std::overflow_error& err) {
+			std::cerr << err.what() << std::endl;
+			return;
+		}
 	}
 	void Mult_by_ten(Big_dec_num& number) {
 		std::cout << "Result of multiplication\n";
-		number.Prod_ten().Output(std::cout);
+		try
+		{
+			number.Prod_ten().Output(std::cout);
+		}
+		catch (std::range_error& err) {
+			std::cerr << err.what() << std::endl;
+			return;
+		}
 	}
 	void Div_by_ten(Big_dec_num& number) {
 		std::cout << "Result of division\n";
