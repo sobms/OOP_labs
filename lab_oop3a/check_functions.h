@@ -78,9 +78,11 @@ namespace lab_oop3 {
 		char str[47];
 		std::cin >> str;
 		second = Big_dec_num(str);
+		Big_dec_num result;
 		std::cout << "Result of sum\n";
 		try {
-			Add(number, second).Output(std::cout);
+			number.Add(second, result);
+			result.Output(std::cout);
 		}
 		catch (std::overflow_error& err) {
 			std::cerr << err.what() << std::endl;
@@ -93,9 +95,11 @@ namespace lab_oop3 {
 		char str[47];
 		std::cin >> str;
 		second = Big_dec_num(str);
+		Big_dec_num result;
 		std::cout << "Result of subtraction\n";
 		try {
-			Subtract(number, second).Output(std::cout);
+			number.Subtract(second, result);
+			result.Output(std::cout);
 		}
 		catch (std::overflow_error& err) {
 			std::cerr << err.what() << std::endl;

@@ -83,7 +83,7 @@ namespace lab_oop3 {
 		if (!in.good()) {
 			throw std::invalid_argument("Input error");
 		}
-		(*this).Big_dec_num::Big_dec_num(str);
+		this->Big_dec_num::Big_dec_num(str);
 		return in;			
 	}
 
@@ -102,13 +102,13 @@ namespace lab_oop3 {
 			return new_num;
 		}
 	}
-	const Big_dec_num Add(const Big_dec_num& a, const Big_dec_num& b) {
-		Big_dec_num result = a.To_add_code();
-		Big_dec_num second = b.To_add_code();
+	void Big_dec_num::Add(const Big_dec_num& a, Big_dec_num& result) const { // передавать ссылку на результат вторым параметром,				 
+		result = To_add_code();										 // производить изменени€ результата внутри функции+
+		Big_dec_num second = a.To_add_code(); // создаю ещЄ один экземпл€р, чтобы не получать дополнительный код каждый раз заново внутри функции
 		int ovfl= result.Unsigned_Sum(second);
-		int sign = ((a.decimal_num[0]-'0') + (second.decimal_num[0]-'0') + ovfl)%2;
+		int sign = ((a.decimal_num[0]-'0') + (decimal_num[0]-'0') + ovfl)%2;
 		result.decimal_num[0] = sign + '0';
-		if (a.decimal_num[0] == second.decimal_num[0]) {
+		if (a.decimal_num[0] == decimal_num[0]) {
 			if ((a.decimal_num[0] == '0') && (result.decimal_num[0] == '1')) {
 				throw std::overflow_error("Positive_overflow");
 			}
@@ -126,12 +126,11 @@ namespace lab_oop3 {
 				break;
 			}
 		}
-		return result;
 	}
-	const Big_dec_num Subtract(const Big_dec_num& a, const Big_dec_num& b) {
-		Big_dec_num copy(b);
-		copy.decimal_num[0] = ((copy.decimal_num[0] == '0') ? '1' : '0');
-		return Add(a, copy);
+	void Big_dec_num::Subtract(const Big_dec_num& a, Big_dec_num& result) const{
+		Big_dec_num copy(a);
+		copy.decimal_num[0] = ((a.decimal_num[0] == '0') ? '1' : '0');
+		this->Add(copy, result);
 	}
 	const Big_dec_num Big_dec_num::Prod_ten() const {
 		if (len == (MAX_LEN - 1)) {

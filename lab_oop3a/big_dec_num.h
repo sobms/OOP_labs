@@ -23,8 +23,8 @@ namespace lab_oop3 {
 		std::istream& Input(std::istream& in); // input
 		//getters
 		//others
-		friend const Big_dec_num Add(const Big_dec_num& a, const Big_dec_num& b); // add number //передавать второй параметр через ссылку+
-		friend const Big_dec_num Subtract(const Big_dec_num& a, const Big_dec_num& b); //subtract number
+		void Add(const Big_dec_num& a, Big_dec_num& result) const; // add number //передавать второй параметр через ссылку+
+		void Subtract(const Big_dec_num& a, Big_dec_num& result) const; //subtract number
 		const Big_dec_num Div_ten() const; //division by ten
 		Big_dec_num To_add_code() const; // convert to additional code
 		std::ostream& Output(std::ostream& out) const; // output
