@@ -26,45 +26,101 @@ namespace lab_oop3 {
 		std::cout << "Please enter a long int to initialize a number\n";
 		long n;
 		n = get_value();
-		number.Big_decimal::Big_decimal(n);
+		try // переместить во внешнюю функцию+
+		{
+			number.Big_decimal::Big_decimal(n);
+		}
+		catch (std::length_error& error)
+		{
+			std::cerr << error.what() << std::endl;
+			number.Big_decimal::Big_decimal();
+			return;
+		}
 	}
 	void Init_from_str(Big_decimal& number) {
 		std::cout << "Please enter a string to initialize a number\n";
 		char str[47];
 		std::cin >> str;
-		number.Big_decimal::Big_decimal(str);
+		try // переместить во внешнюю функцию+
+		{
+			number.Big_decimal::Big_decimal(str);
+		}
+		catch (std::invalid_argument& error) {
+			std::cerr << error.what() << std::endl;
+			number.Big_decimal::Big_decimal();
+			return;
+		}
+		catch (std::length_error& error)
+		{
+			std::cerr << error.what() << std::endl;
+			number.Big_decimal::Big_decimal();
+			return;
+		}
 	}
 	void Input_number(Big_decimal& number) {
 		std::cout << "Please enter in istream your number\n";
-		std::cin >> number;
-		std::cin.ignore(10000, '\n');
+		try {
+			std::cin >> number;
+		}
+		catch (std::invalid_argument& err) {
+			std::cerr << err.what() << std::endl;
+			std::cin.ignore(10000, '\n');  // игнорирует n символов в потоке
+			std::cin.clear();             // снимает все флаги с потока
+			return;
+		}
+		if (std::cin.fail()) {
+			std::cout << "Input error\n";
+			std::cin.ignore(10000, '\n');  // игнорирует n символов в потоке
+			std::cin.clear();             // снимает все флаги с потока
+		}
 	}
 	void Get_add_code(Big_decimal& number) {
 		std::cout << "Getting additional code...\n";
 		Big_decimal code = ~number;
 		std::cout << code;
 	}
-	void Sum_numbers(Big_decimal& number) {///???
+	void Sum_numbers(Big_decimal& number) {
 		std::cout << "Please enter the second number\n";
-		long n;
 		Big_decimal second;
-		n = get_value();
-		second = Big_decimal(n);
+		char str[47];
+		std::cin >> str;
+		second = Big_decimal(str);
 		std::cout << "Result of sum\n";
-		std::cout << (number + second);
+		try {
+			std::cout << (number + second);
+		}
+		catch (std::overflow_error& err) {
+			std::cerr << err.what() << std::endl;
+			return;
+		}
+
+		
 	}
-	void Sub_numbers(Big_decimal& number) {///???
+	void Sub_numbers(Big_decimal& number) {
 		std::cout << "Please enter the second number\n";
-		long n;
 		Big_decimal second;
-		n = get_value();
-		second = Big_decimal(n);
+		char str[47];
+		std::cin >> str;
+		second = Big_decimal(str);
 		std::cout << "Result of subtraction\n";
-		std::cout << (number - second);
+		try {
+			std::cout << (number - second);
+		}
+		catch (std::overflow_error& err) {
+			std::cerr << err.what() << std::endl;
+			return;
+		}
 	}
 	void Mult_by_ten(Big_decimal& number) {
 		std::cout << "Result of multiplication\n";
-		std::cout << number.Prod_ten();
+		try
+		{
+			std::cout << number.Prod_ten();
+		}
+		catch (std::range_error& err) {
+			std::cerr << err.what() << std::endl;
+			return;
+		}
 	}
 	void Div_by_ten(Big_decimal& number) {
 		std::cout << "Result of division\n";
