@@ -32,41 +32,59 @@ namespace lab_oop3 {
 		std::cout << "Please enter a string to initialize a number\n";
 		std::string str;
 		std::cin >> str;
-		number.Big_decimal::Big_decimal(str);
+		try {
+			number.Big_decimal::Big_decimal(str);
+		}
+	
+		catch (std::invalid_argument& error) {
+			std::cerr << error.what() << std::endl;
+			return;
+		}
 	}
 	void Input_number(Big_decimal& number) {
 		std::cout << "Please enter in istream your number\n";
-		std::cin >> number;
-		std::cin.ignore(10000, '\n');
+		try {
+			std::cin >> number;
+		}
+		catch (std::invalid_argument& error) {
+			std::cerr << error.what() << std::endl;
+			std::cin.ignore(10000, '\n');  // игнорирует n символов в потоке
+			std::cin.clear();             // снимает все флаги с потока
+			return;
+		}
+		if (std::cin.fail()) {
+			std::cout << "Input error\n";
+			std::cin.ignore(10000, '\n');  // игнорирует n символов в потоке
+			std::cin.clear();             // снимает все флаги с потока
+		}
 	}
 	void Get_add_code(Big_decimal& number) {
 		std::cout << "Getting additional code...\n";
-		Big_decimal code;
-		code = (~number);
-		std::cout << code;
-		code.~Big_decimal();
+		std::cout << (~number);
 	}
 	void Sum_numbers(Big_decimal& number) {
 		Big_decimal second;
 		Input_number(second);
 		std::cout << "Result of sum\n";
 		std::cout << (number + second);
-		second.~Big_decimal();
 	}
 	void Sub_numbers(Big_decimal& number) {
 		Big_decimal second;
 		Input_number(second);
 		std::cout << "Result of subtraction\n";
 		std::cout << (number - second);
-		second.~Big_decimal();
 	}
 	void Mult_by_ten(Big_decimal& number) {
 		std::cout << "Result of multiplication\n";
-		std::cout << number.Prod_ten();
+		Big_decimal res(number);
+		number.Prod_ten(res);
+		std::cout << res;
 	}
 	void Div_by_ten(Big_decimal& number) {
 		std::cout << "Result of division\n";
-		std::cout << number.Div_ten();
+		Big_decimal res(number);
+		number.Div_ten(res);
+		std::cout << res;
 	}
 	void Output_number(Big_decimal& number) {
 		std::cout << "Output...\n";
