@@ -11,7 +11,7 @@ namespace lab_oop3 {
 	class Big_decimal
 	{
 	private:
-		static const int MAX_LEN = 47;
+		static const int MAX_LEN = 27;
 		int len;
 		char decimal_num[MAX_LEN];
 		int Unsigned_Sum(const Big_decimal& a);
@@ -21,6 +21,8 @@ namespace lab_oop3 {
 		Big_decimal(long num); // initial constructor 1
 		Big_decimal(const char* str); // initial constructor 2
 		//setters
+		int Get_len() const { return len; }
+		const char* Get_num() const { return decimal_num; }
 		friend std::istream& operator >> (std::istream& in, Big_decimal& a); // input //remade+
 		//getters
 		//others
@@ -30,6 +32,7 @@ namespace lab_oop3 {
 		Big_decimal operator ~() const; // convert to additional code
 		friend std::ostream& operator << (std::ostream& out, const Big_decimal& a); // output
 		const Big_decimal Prod_ten() const; //increase by ten
+		bool compare_numbers(const char* str2);
 	};
 }//changes moved from lab 3a+
 #endif // !_Big_decimal_H_

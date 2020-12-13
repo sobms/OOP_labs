@@ -126,7 +126,7 @@ namespace lab_oop3 {
 		return result;
 	}
 	const Big_decimal operator -(const Big_decimal& a, const Big_decimal& b) {
-		Big_decimal copy(a);
+		Big_decimal copy(b);
 		copy.decimal_num[0] = ((copy.decimal_num[0] == '0') ? '1' : '0');
 		return a + copy;
 	}
@@ -205,5 +205,16 @@ namespace lab_oop3 {
 		else {
 			return true;
 		}
+	}
+	bool Big_decimal::compare_numbers(const char* str2) {
+		if (strlen(str2) == MAX_LEN) {
+			for (int i = 0; i < MAX_LEN; i++) {
+				if (decimal_num[i] != str2[i]) {
+					return false;
+				}
+			}
+		}
+		else { return false; }
+		return true;
 	}
 }

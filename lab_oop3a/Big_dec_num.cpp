@@ -194,4 +194,15 @@ namespace lab_oop3 {
 		}
 		else { return false; }
 	}
+	bool Big_dec_num::compare_numbers(const char* str2) {
+		if (strlen(str2) == MAX_LEN) {
+			for (int i = 0; i < MAX_LEN; i++) {
+				if (decimal_num[i] != str2[i]) {
+					return false;
+				}
+			}
+		}
+		else { return false; }
+		return true;
+	}
 }

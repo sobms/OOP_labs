@@ -28,7 +28,9 @@ namespace lab_oop3 {
 		Big_decimal(Big_decimal&& sample) : max_len(sample.max_len), len(sample.len), decimal_num(sample.decimal_num) {
 			sample.decimal_num = nullptr;
 		}										//moving constructor+
-
+		int Get_len() const { return len; }
+		int Get_max_len() const { return max_len; }
+		const char* Get_num() const { return decimal_num; }
 		~Big_decimal() { delete[] decimal_num;}; //destructor
 		Big_decimal& operator = (const Big_decimal& a); //assigning
 		Big_decimal& operator = (Big_decimal&& a);		//moving+
@@ -39,6 +41,7 @@ namespace lab_oop3 {
 		Big_decimal operator ~() const; // convert to additional code
 		friend std::ostream& operator << (std::ostream& out, const Big_decimal& a); // output
 		void Prod_ten(Big_decimal& res) const; //increase by ten
+		bool compare_numbers(const char* str2);
 	}; 
 }
 //исправлен delete[]+

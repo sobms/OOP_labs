@@ -3,21 +3,27 @@
 #include <string>
 #include <string.h>
 #include <algorithm> 
-#define MAX_LENGTH 47
+#define MAX_LENGTH 27
 namespace lab_oop3 {
-	Big_decimal::Big_decimal() : len(1), max_len(47) {
+	Big_decimal::Big_decimal() : len(1) {
+		if (this->max_len > 0)            // освобождать память перед вызовом конструктора+
+			this->~Big_decimal();
+		max_len= MAX_LENGTH;
 		decimal_num = new char[max_len];
 		for (int i = 0; i < max_len; i++) {
 			decimal_num[i] = '0';
 		}
 	}
 
-	Big_decimal::Big_decimal(long num) : max_len(47){ 
+	Big_decimal::Big_decimal(long num) { 
+		if (this->max_len > 0)            // освобождать память перед вызовом конструктора+
+			this->~Big_decimal();
+		int l = length(num);
+		len = l;
+		max_len = (l / MAX_LENGTH + 1) * (MAX_LENGTH);
 		decimal_num = new char[max_len];
 		decimal_num[0] = ((num < 0) ? '1' : '0'); // sign of the number
 		if (num < 0) { num *= -1; }
-		int l = length(num);
-		len = l;
 		for (int i = 1; i < max_len; i++) {
 			decimal_num[i] = (num % 10) + '0';
 			if ((num /= 10) == 0) {
@@ -28,19 +34,22 @@ namespace lab_oop3 {
 			decimal_num[i] = '0';
 		}
 	}
-	Big_decimal::Big_decimal(const Big_decimal& sample) : max_len(sample.max_len), len(sample.len) {
-		if (len>0) {
-			this->~Big_decimal();
+	Big_decimal::Big_decimal(const Big_decimal& sample) {
+		if (sample.len>0) {
+			len = sample.len;
+			if (this->max_len > 0)            // освобождать память перед вызовом конструктора+
+				this->~Big_decimal(); 
+			max_len = sample.max_len;
 			decimal_num = new char[max_len];
 			for (int i = 0; i < max_len; i++) {
 				decimal_num[i] = sample.decimal_num[i];
 			}
-		}
+		}else{ this->Big_decimal::Big_decimal(); }
 	}
 
-	Big_decimal::Big_decimal(std::string& str) : max_len(47) {
+	Big_decimal::Big_decimal(std::string& str) : max_len(MAX_LENGTH) {
 		//throw away zeros
-		for (int i = 0; str[i] == '0';) {
+		for (int i = 0; ((str[i] == '0') && (str.length()>1));) {
 			str.erase(0,1);
 		}
 		//check if not a number
@@ -56,16 +65,15 @@ namespace lab_oop3 {
 		}
 
 		//throw away zeroes
-		for (int i = 0; str[i] == '0';) {
+		for (int i = 0; ((str[i] == '0') && (str.length() > 1));) {
 			str.erase(0, 1);
 		}
 		//get length of number
 		int l = str.length();
 		//form Big_decimal
 
-		if (l < 1) {
-			if (this->max_len>0)            // освобождать память перед вызовом конструктора+
-				this->~Big_decimal();
+		if (((l==1)&&(str[0]=='0'))||(l<1)) {
+			max_len = 0;
 			this->Big_decimal::Big_decimal();
 			return;
 		}
@@ -114,7 +122,7 @@ namespace lab_oop3 {
 		}
 		else {
 			Big_decimal new_num(*this);     // копирующий конструктор вместо ручного копирования+
-			new_num.decimal_num[0] = '1';
+			//new_num.decimal_num[0] = '1';
 			for (int i = 1; i < max_len; i++) {
 				new_num.decimal_num[i] = ('9' - decimal_num[i]) + '0';
 			}
@@ -155,6 +163,9 @@ namespace lab_oop3 {
 		Big_decimal second = ~b;
 		int ovfl = result.Unsigned_Sum(second);
 		int sign = ((a.decimal_num[0] - '0') + (second.decimal_num[0] - '0') + ovfl) % 2;
+		if (a.decimal_num[0] == b.decimal_num[0]) {
+			sign = a.decimal_num[0]-'0';
+		}
 		result.decimal_num[0] = sign + '0';
 		result =(~result);
 
@@ -165,6 +176,15 @@ namespace lab_oop3 {
 				break;
 			}
 		}
+		if (result.len < result.max_len - MAX_LENGTH) {
+			result.max_len -= MAX_LENGTH;
+			char* new_num = new char[result.max_len]; // если адресат const, то перемещение исключено, а для копирования нужно изменить max_len, что запрещено
+			for (int i = 0; i < result.max_len; i++) {
+				new_num[i] = result.decimal_num[i];
+			}
+			delete[] result.decimal_num;
+			result.decimal_num = new_num;
+		}
 		return result;
 	}
 	const Big_decimal operator -(const Big_decimal& a, const Big_decimal& b) {
@@ -174,8 +194,9 @@ namespace lab_oop3 {
 	}
 	void Big_decimal::Prod_ten(Big_decimal& res) const{
 		
-		if (len% MAX_LENGTH == (MAX_LENGTH - 1)) {              //увеличение памяти, если число на границе max_len+(может лучше сразу выделять память такого размера)
+		if (len == (max_len - 1)) {              //увеличение памяти, если число на границе max_len+
 			res.max_len += MAX_LENGTH;
+			delete[]res.decimal_num;
 			res.decimal_num = new char[res.max_len]; // если адресат const, то перемещение исключено, а для копирования нужно изменить max_len, что запрещено
 			for (int i = 0; i < max_len; i++) {
 				res.decimal_num[i] = decimal_num[i];
@@ -195,16 +216,6 @@ namespace lab_oop3 {
 		res.len++;
 	}
 	void Big_decimal::Div_ten(Big_decimal& res) const {
-		if (len % MAX_LENGTH==0) {		//уменьшение выделенной памяти+
-			res.max_len -= MAX_LENGTH;
-			res.decimal_num = new char[res.max_len]; // если адресат const, то перемещение исключено, а для копирования нужно изменить max_len, что запрещено
-			for (int i = 0; i < max_len; i++) {
-				res.decimal_num[i] = decimal_num[i];
-			}
-			for (int i = max_len; i < res.max_len; i++) {
-				res.decimal_num[i] = '0';
-			}
-		}
 		for (int i = 1; i < len; i++) {
 			res.decimal_num[i] = res.decimal_num[i + 1];
 		}
@@ -212,6 +223,15 @@ namespace lab_oop3 {
 		if (res.len == 1) {
 			res.decimal_num[0] = '0';
 			return;
+		}
+		if (len % MAX_LENGTH==0) {		//уменьшение выделенной памяти+
+			res.max_len -= MAX_LENGTH;  // если адресат const, то перемещение исключено, а для копирования нужно изменить max_len, что запрещено
+			char* new_num = new char[res.max_len];
+			for (int i = 0; i < res.max_len; i++) {
+				new_num[i] = res.decimal_num[i];
+			}
+			delete[]res.decimal_num;
+			res.decimal_num = new_num;
 		}
 		res.len--;
 	}
@@ -229,21 +249,26 @@ namespace lab_oop3 {
 		len = std::max(len, a.len);
 
 		int max_l = std::max(max_len, a.max_len);
-		if (len == max_len - 1) {   //если массив может переполниться+
+		if ((len == (max_len - 1))&&(a.decimal_num[0]==decimal_num[0])) {   //если массив может переполниться+
 			max_l += MAX_LENGTH;
 		}
+		Big_decimal new_a = a;
+		new_a.Get_mem(max_l);
+		new_a.max_len = max_l;
 
 		this->Get_mem(max_l); // функция расширения памяти на size
-		
-		for (int i = 1; i < a.max_len; i++) {
-			int sum = int((decimal_num[i] - '0') + (a.decimal_num[i] - '0') + overflow);
+		for (int i = 1; (i < new_a.max_len); i++) {
+			int sum = int((decimal_num[i] - '0')) + int((new_a.decimal_num[i] - '0')) + overflow;
 			decimal_num[i] = (sum % 10) + '0';
 			overflow = ((sum >= 10) ? 1 : 0);
 			if (i == len) {
 				ovfl = overflow;
 			}
 		}
-
+		/*if ((ovfl) && (len == (max_len- MAX_LENGTH - 1))) {
+																//если массив переполняется
+			decimal_num[len+1]='1';
+		}*/
 		return ovfl;
 	}
 	bool lab_oop3::is_number(std::string& str) {
@@ -257,7 +282,7 @@ namespace lab_oop3 {
 	}
 	bool lab_oop3::check_str(std::string& str) {
 		//throw away zeros
-		for (int i = 0; str[i] == '0';) {
+		for (int i = 0; ((str[i] == '0')&&(str.length()>1));) {
 			str.erase(0, 1);
 		}
 		//check if not a number
@@ -274,13 +299,25 @@ namespace lab_oop3 {
 			for (int i = 0; i < max_len; i++) {
 				new_ptr[i] = decimal_num[i];
 			}
-			for (int i = max_len; i < size; i++) {
-				new_ptr[i] = '0';
+			char d = ((decimal_num[0] == '0') ? '0' : '9');
+			for (int i =max_len; i < size; i++) {
+				new_ptr[i] = d;
 			}
 			max_len = size;
 			delete[] decimal_num;
 			decimal_num = new_ptr;
 		}
 		return *this;
+	}
+	bool Big_decimal::compare_numbers(const char* str2) {
+		if (strlen(str2) == max_len) {
+			for (int i = 0; i < max_len; i++) {
+				if (decimal_num[i] != str2[i]) {
+					return false;
+				}
+			}
+		}
+		else { return false; }
+		return true;
 	}
 }
