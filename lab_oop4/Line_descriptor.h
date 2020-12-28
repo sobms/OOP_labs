@@ -21,7 +21,7 @@ namespace Metro_line {
 		
 		std::string& get_name() const;
 		Line_descriptor& add_station();
-		Line_descriptor* find() const;
+		Station_descriptor* find(std::string name) const;
 		void show_table() const;
 	};
 }
