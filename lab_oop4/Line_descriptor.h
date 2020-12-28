@@ -20,8 +20,8 @@ namespace Metro_line {
 		~Line_descriptor();
 		
 		std::string& get_name() const;
-		Station& add_station();
-		Station* find() const;
+		Line_descriptor& add_station();
+		Line_descriptor* find() const;
 		void show_table() const;
 	};
 }
