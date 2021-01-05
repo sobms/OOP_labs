@@ -2,63 +2,61 @@
 #include "pch.h"
 #include <iostream>
 #include <typeinfo>
+#include <list>
 
 namespace Metro_line {
-	class Station_descriptor { // abstract class
-	protected:
-		virtual std::ostream& show_info(std::ostream& out) const = 0;
-	public:
-		virtual std::string& get_name() const = 0;
-		virtual Station_descriptor& change_name() = 0;
-		virtual std::string& get_type() const = 0;
-		virtual Station_descriptor& change_type() = 0;
-		virtual Station_descriptor* copy() const;
-		friend std::ostream& operator << (std::ostream& out, const Station_descriptor& sample) {
-			sample.show_info(out);
-		}
-	};
-	class Station : public Station_descriptor { // station without transition
-	protected:
+	class Station { // station without transition
+	private:
 		std::string name;
+	protected:
 		virtual std::ostream& show_info(std::ostream& out) const {
-			std::cout << "Station name: " << name;
+			std::cout << "Station name: " << name << std::endl;
+			return out;
 		};
+		virtual std::istream& get(std::istream& in) {
+			std::cout << "Enter name of station" << std::endl;
+			in >> name;
+			return in;
+		}
 	public:
 		Station(std::string default_name = "undefined") :
 			name(default_name) {}
 
-		std::string& get_name() const;
-		Station& change_name();
-		std::string& get_type() const;
-		Station& change_type();
-		Station* copy() const {
+		std::string get_name() const { return name; };
+		Station& change_name(const std::string& name2) { name = name2; return *this; };
+		std::string get_type() const { return typeid(*this).name(); }
+		friend Station* change_type(const Station* st);
+		virtual Station* copy() const {
 			return new Station(*this);
 		}
+		friend std::ostream& operator << (std::ostream& out, const Station& sample) {
+			sample.show_info(out);
+			return out;
+		}
+		friend std::istream& operator >> (std::istream& in, Station& sample) {
+			sample.get(in);
+			return in;
+		}
 	};
-	class Crossing_station : public Station_descriptor { // station with transition
-	protected:
-		std::string name;
+	class Crossing_station : public Station { // station with transition
+	private:
 		std::string transition_lines[3];
-		virtual std::ostream& show_info(std::ostream& out) const {
-			std::cout << "Station name: " << name << std::endl;
-			std::cout << "Transition lines: ";
-			for (int i = 0; transition_lines[i].length() != 0; i++) {
-				std::cout << transition_lines[i] << " ";
-			}
-		};
+	protected:
+		virtual std::ostream& show_info(std::ostream& out) const;
+		virtual std::istream& get(std::istream& in);
 	public:
-		Crossing_station(std::string default_name = "undefined") :
-			name(default_name) {}
-
-		std::string& get_name() const;
-		Crossing_station& change_name();
-		std::string& get_type() const;
-		Crossing_station& change_type();
+		Crossing_station(std::string name = "undefined") : Station(name) {}
+		Crossing_station(std::string lines[3], std::string name = "undefined") : Station(name) 
+		{
+			for (int i = 0; i < 3; i++) {
+				transition_lines[i] = lines[i];
+			}
+		}
 		Crossing_station* copy() const {
 			return new Crossing_station(*this);
 		}
 
-		std::string* get_transition_lines() const;
+		std::list<std::string> get_transition_lines() const;
 		Crossing_station& add_transition_line();
 	};
 
@@ -67,24 +65,29 @@ namespace Metro_line {
 		std::string station_name;
 	};
 
-	class Transfer_node : public Station_descriptor { //transfer node
-	protected:
-		std::string name;
+	class Transfer_node : public Station { //transfer node
+	private:
 		transition_descriptor transitions[3];
+	protected:
 		virtual std::ostream& show_info(std::ostream& out) const;
+		virtual std::istream& get(std::istream& in);
 	public:
-		Transfer_node(std::string default_name = "undefined") :
-			name(default_name) {}
+		Transfer_node(std::string default_name = "undefined") : Station(default_name) {}
 
-		std::string& get_name() const;
-		Transfer_node& change_name();
-		std::string& get_type() const;
-		Transfer_node& change_type();
+		Transfer_node(transition_descriptor tr[3], std::string default_name = "undefined") : Station(default_name) 
+		{
+			for (int i = 0; i < 3; i++) {
+				transitions[i] = tr[i];
+			}
+		}
+
+		friend std::ostream& operator << (std::ostream out, const transition_descriptor& tr);
+
 		Transfer_node* copy() const {
 			return new Transfer_node(*this);
 		}
-		Transfer_node& add_transition();
-		transition_descriptor* get_tranitions_list() const;
+		Station& add_transition();
+		std::list <transition_descriptor> get_tranitions_list() const;
 
 	};
 }
