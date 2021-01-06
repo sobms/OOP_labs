@@ -57,7 +57,7 @@ namespace Metro_line {
 		}
 
 		std::list<std::string> get_transition_lines() const;
-		Crossing_station& add_transition_line();
+		Crossing_station& add_transition_line(std::string name);
 	};
 
 	struct transition_descriptor {
@@ -86,8 +86,8 @@ namespace Metro_line {
 		Transfer_node* copy() const {
 			return new Transfer_node(*this);
 		}
-		Station& add_transition();
-		std::list <transition_descriptor> get_tranitions_list() const;
+		Station& add_transition(transition_descriptor transition_name);
+		std::list <transition_descriptor> get_transitions_list() const;
 
 	};
 }

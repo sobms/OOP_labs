@@ -25,82 +25,29 @@ namespace Metro_line {
 			else
 			{
 				std::cin.ignore(32767, '\n');
-				if ((a<=max)||(a>min)) {
+				if ((a<=max)&&(a>min)) {
 					return a;
 				}
 				else {
-					std::cout << "Type don't exist. Try again!\n";
+					std::cout << "Value is out of range. Try again!\n";
 				}
 			}
 		}
 	}
-	void Line_descriptor::insert(Station* new_elem) {//вывод ввода имени линии в начало создания линии, 
-		std::list<Station*>::iterator it;
-
+	void Line_descriptor::insert(Station* new_elem, std::list<Station*>::iterator it) {
 		if (station_table.empty()) {
-			station_table.push_front(new_elem);
-			std::cout << "Enter name of metro line" << std::endl;
-			std::cin >> name;
-			std::cin.ignore(80, '\n');
+			station_table.push_front(new_elem->copy());
 		}
 		else {
-			int success = 0;
-			do {
-				system("cls");
-				std::cout << "Enter name of station before you want to create a new station or enter 'end' to add station at the and of line: ";
-				std::string name_next_station;
-				std::cin >> name_next_station;
-				if (!std::cin.good()) {
-					std::cin.clear();
-					std::cin.ignore(32767, '\n');
-					std::cout << "Input error. Please try again." << std::endl;
-					Sleep(2000);
-					continue;
-				}
-
-				if (name_next_station == "end") { station_table.push_back(new_elem); return; }
-
-				for (it = station_table.begin(); it != station_table.end(); it++) {
-					if ((*it)->get_name() == name_next_station) {
-						success = 1;
-						break;
-					}
-				}
-				if (!success) {
-					std::cout << "Station_not_exist. Please try again!" << std::endl;
-					Sleep(2000);
-				}
-			} while (!success);
-			station_table.insert(it, new_elem);
+			if (!find(new_elem->get_name())){
+				station_table.insert(it, new_elem);
+			}
+			else {
+				throw std::exception("Element already exist");
+			}
 		}
 	}
-	Line_descriptor& Line_descriptor::add_station() // сделать полностью внешней функцией
-	{
-		std::cout << "Enter type of station:" << std::endl << "1. station without transition" << std::endl << "2. station with transition" << std::endl << "3. transfer node" << std::endl;
-		int type = 0;
-		type = get_value(0,3);
-
-		Station a;
-		Crossing_station b;
-		Transfer_node c;
-
-		Station* new_station = nullptr;
-		switch (type) {
-		case 1:
-			new_station = &a;
-			break;
-		case 2:
-			new_station = &b;
-			break;
-		case 3:
-			new_station = &c;
-			break;
-		}
-		std::cin >> (*new_station);
-		std::cin.ignore(80, '\n');
-		Line_descriptor::insert(new_station->copy());
-		return *this;
-	}
+	
 
 	int Line_descriptor::remove_station(std::string name) {
 		std::list<Station*>::iterator it;
@@ -115,12 +62,17 @@ namespace Metro_line {
 	}
 	void Line_descriptor::replace_station(std::string name, Station* sample) {
 		std::list<Station*>::iterator it;
-		for (it = station_table.begin(); it != station_table.end(); it++) {
-			if ((*it)->get_name() == name) {
-				delete (*it);
-				it = station_table.erase(it);
-				station_table.insert(it, sample);
-				return;
+		if (!sample) {
+			throw std::invalid_argument("The value of station for replacement is nullptr");
+		}
+		else {
+			for (it = station_table.begin(); it != station_table.end(); it++) {
+				if ((*it)->get_name() == name) {
+					delete (*it);
+					it = station_table.erase(it);
+					station_table.insert(it, sample);
+					return;
+				}
 			}
 		}
 	}
@@ -134,7 +86,26 @@ namespace Metro_line {
 		}
 		return nullptr;
 	}
-
+	Station* Line_descriptor::find_by_transition(std::string name) const
+	{
+		Transfer_node* ptr;
+		std::list<Station*>::const_iterator it;
+		std::list<transition_descriptor>::iterator iter;
+		for (it = station_table.begin(); it != station_table.end(); it++) {
+			if (typeid(*(*it)) == typeid(Transfer_node)) {
+				ptr = dynamic_cast<Transfer_node*>((*it)->copy());
+				std::list<transition_descriptor> tr_lst = ptr->get_transitions_list();
+				for (iter = tr_lst.begin(); iter != tr_lst.end(); iter++) {
+					if ((*iter).station_name == name) {
+						return (*it)->copy();
+					}
+				}
+				delete ptr;
+				tr_lst.clear();
+			}
+		}
+		return nullptr;
+	}
 
 	void Line_descriptor::show_table()
 	{
@@ -160,7 +131,7 @@ namespace Metro_line {
 	{
 		std::list<Station*>::const_iterator it;
 		for (it = sample.station_table.begin(); it != sample.station_table.end(); it++) {
-			station_table.push_back(*it);
+			station_table.push_back((*it)->copy());
 		}
 		name = sample.name;
 	}
@@ -175,7 +146,7 @@ namespace Metro_line {
 			name.clear();
 			// копирование данных из правого объекта в левый
 			for (it = sample.station_table.begin(); it != sample.station_table.end(); it++) {
-				station_table.push_back(*it);
+				station_table.push_back((*it)->copy());
 			}
 			name = sample.name;
 		}

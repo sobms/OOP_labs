@@ -50,7 +50,17 @@ namespace Metro_line {
 		n = get_value(0,3);
 		std::cout << "Enter transition lines: "<<std::endl;
 		for (int i = 0; i < n; i++) {
-			in >> transition_lines[i];
+			std::string name;
+			std::cin >> name;
+			try {
+				add_transition_line(name);
+			}
+			catch (std::logic_error& err1) {
+				std::cout << err1.what() << std::endl;
+			}
+			catch (std::out_of_range& err2) {
+				std::cout << err2.what() << std::endl;
+			}
 		}
 		return in;
 	}
@@ -61,7 +71,17 @@ namespace Metro_line {
 		n = get_value(0,3);
 		std::cout << "Enter transitions: " << std::endl;
 		for (int i = 0; i < n; i++) {
-			in >> transitions[i];
+			transition_descriptor transition_name;
+			std::cin >> transition_name;
+			try {
+				add_transition(transition_name);
+			}
+			catch (std::logic_error& err1) {
+				std::cout << err1.what() << std::endl;
+			}
+			catch (std::out_of_range& err2) {
+				std::cout << err2.what() << std::endl;
+			}
 		}
 		return in;
 	}
@@ -84,16 +104,23 @@ namespace Metro_line {
 			int n;
 			n = get_value(0,3);
 			std::cout << "Enter transition lines: " << std::endl;
-			for (int i = 0; i < n; i++)	
-				b.add_transition_line();
+			for (int i = 0; i < n; i++) {
+				std::cout << "Enter name of transition line " << std::endl;
+				std::string name;
+				std::cin >> name;
+				b.add_transition_line(name);
+			}
 			st = &b;
 			break;
 		case 3:
 			std::cout << "Enter number of transitions->";
 			n = get_value(0,3);
 			std::cout << "Enter transitions: " << std::endl;
-			for (int i = 0; i < n; i++)	
-				c.add_transition();
+			for (int i = 0; i < n; i++) {
+				transition_descriptor transition_name;
+				std::cin >> transition_name;
+				c.add_transition(transition_name);
+			}
 			st = &c;
 			break;
 		}
@@ -109,22 +136,19 @@ namespace Metro_line {
 		return res;
 	}
 
-	std::list<transition_descriptor> Transfer_node::get_tranitions_list() const{
+	std::list<transition_descriptor> Transfer_node::get_transitions_list() const{
 		std::list<transition_descriptor> res;
 		for (int i = 0; ((transitions[i].line_name.length() != 0)&&(i<3)); i++) {
 			res.push_back(transitions[i]);
 		}
 		return res;
 	}
-	Crossing_station& Crossing_station::add_transition_line() { // имя в аргументы, ввод имени выкинуть за пределы
-		std::cout << "Enter name of transition line " << std::endl;//предупреждения во внешнюю функцию в обработку ошибок
+	Crossing_station& Crossing_station::add_transition_line(std::string name) { //предупреждения во внешнюю функцию в обработку ошибок
 		int i;
-		std::string name;
-		std::cin >> name;
 		//поиск существующей станции
 		for (i = 0; ((transition_lines[i].length() != 0) && (i<3)); i++) {
 			if (transition_lines[i] == name) {
-				std::cout << "Transition line with this name already exist!";
+				throw std::logic_error("Transition line with this name already exist!");
 				return *this;
 			}
 		}
@@ -136,13 +160,11 @@ namespace Metro_line {
 		}
 		return *this;
 	}
-	Station& Transfer_node::add_transition() { // переход в аргументы, ввод перехода во внешнюю функцию, обработка ошибок
+	Station& Transfer_node::add_transition(transition_descriptor transition_name) { // обработка ошибок
 		int i;
-		transition_descriptor transition_name;
-		std::cin >> transition_name;
 		for (i = 0; ((transitions[i].line_name.length() != 0) && (i < 3)); i++) {
 			if ((transitions[i].line_name == transition_name.line_name) && (transitions[i].station_name == transition_name.station_name)) {
-				std::cout << "Transition with this name already exist!";
+				throw std::logic_error("Transition with this name already exist!");
 				return *this;
 			}
 		}

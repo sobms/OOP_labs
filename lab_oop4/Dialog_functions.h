@@ -2,10 +2,11 @@
 #include "../Station_discriptors/Station_discriptors.h"
 #include "../Metro_line/Line_descriptor.h"
 #include <typeinfo>
+#include <Windows.h>
 
 namespace Metro_line {
 	int get_value(int min, int max);
-
+	std::istream& operator>> (std::istream& in, transition_descriptor& tr);
 	std::string get_str() {
 		std::string name;
 		do {
@@ -30,11 +31,17 @@ namespace Metro_line {
 				station->Station::change_name(name);
 				break;
 			case 2:
+				std::cout << "Enter name of transition line " << std::endl;
+				std::string name;
+				std::cin >> name;
 				try {
-					station->add_transition_line();
+					station->add_transition_line(name);
 				}
-				catch (std::out_of_range& err) {
-					std::cout << err.what() << std::endl;
+				catch (std::logic_error& err1) {
+					std::cout << err1.what() << std::endl;
+				}
+				catch (std::out_of_range& err2) {
+					std::cout << err2.what() << std::endl;
 				}
 				break;
 		}	
@@ -66,19 +73,90 @@ namespace Metro_line {
 				station->Station::change_name(name);
 				break;
 			case 2:
+				transition_descriptor transition_name;
+				std::cin >> transition_name;
 				try {
-					station->add_transition();
+					station->add_transition(transition_name);
 				}
-				catch (std::out_of_range& err) {
-					std::cout << err.what() << std::endl;
+				catch (std::logic_error& err1) {
+					std::cout << err1.what() << std::endl;
+				}
+				catch (std::out_of_range& err2) {
+					std::cout << err2.what() << std::endl;
 				}
 				break;
 		}
 		return station;
 	}
+
+	Line_descriptor& add_station(Line_descriptor& line) // сделать полностью внешней функцией
+	{
+		//формируем станцию нужного типа
+		std::cout << "Enter type of station:" << std::endl << "1. station without transition" << std::endl << "2. station with transition" << std::endl << "3. transfer node" << std::endl;
+		int type = 0;
+		type = get_value(0, 3);
+
+		Station a;
+		Crossing_station b;
+		Transfer_node c;
+
+		Station* new_station = nullptr;
+		switch (type) {
+		case 1:
+			new_station = &a;
+			break;
+		case 2:
+			new_station = &b;
+			break;
+		case 3:
+			new_station = &c;
+			break;
+		}
+		std::cin >> (*new_station);
+		std::cin.ignore(80, '\n');
+
+		//находим необходимое значение итератора
+		std::list<Station*>::iterator it;
+		int success = 0;
+		if (!line.is_line_empty()) {
+			do {
+				system("cls");
+				std::cout << "Enter name of station before you want to create a new station or enter 'end' to add station at the and of line: ";
+				std::string name_next_station;
+				std::cin >> name_next_station;
+				if (!std::cin.good()) {
+					std::cin.clear();
+					std::cin.ignore(32767, '\n');
+					std::cout << "Input error. Please try again." << std::endl;
+					Sleep(2000);
+					continue;
+				}
+
+				if (name_next_station == "end") { it = line.Line_descriptor::iter_end(); break; }
+
+				for (it = line.Line_descriptor::iter_begin(); it != line.Line_descriptor::iter_end(); it++) {
+					if ((*it)->get_name() == name_next_station) {
+						success = 1;
+						break;
+					}
+				}
+				if (!success) {
+					std::cout << "Station_not_exist. Please try again!" << std::endl;
+					Sleep(2000);
+				}
+			} while (!success);
+		}
+		try {
+			line.Line_descriptor::insert(new_station->copy(), it);
+		}
+		catch (std::exception& err) {
+			std::cout << err.what() << std::endl;
+			return line;
+		}
+		return line;
+	}
 	void Add(Line_descriptor& line) {
-		//вынести ввод типа станции
-		line.Line_descriptor::add_station();
+		line = add_station(line);
 	}
 	void Remove(Line_descriptor& line) {
 		std::cout << "Enter name of station that's necessary to remove" << std::endl;
@@ -97,6 +175,10 @@ namespace Metro_line {
 		std::string name = get_str();
 
 		Station* obj = line.find(name);
+		if (!obj) {
+			std::cout << "Station with this name don't exist!" << std::endl;
+			return;
+		}
 		std::cout << "If you want change type of station enter 'yes' else enter any simbol" << std::endl;
 		std::string choice = get_str();
 		if (choice == "yes") {
@@ -140,7 +222,15 @@ namespace Metro_line {
 		}
 	}
 	void Find_by_name_transfer_station(Line_descriptor& line) {
-
+		std::cout << "Enter name of transfer_station which has access to searchable station" << std::endl;
+		std::string name = get_str();
+		Station* obj = line.find_by_transition(name);
+		if (!obj) {
+			std::cout << "Station not found!" << std::endl;
+		}
+		else {
+			std::cout << (*obj);
+		}
 	}
 	void Show_line(Line_descriptor& line) {
 		line.Line_descriptor::show_table();

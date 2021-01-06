@@ -39,9 +39,10 @@ int Get_answer() {
         std::cin>>choice;
         
         if (!std::cin.good()) {
-            std::cout << "Input error! Press any key and try again..." << std::endl;
-            std::cin.ignore(10000, '\n');
+            std::cout << "Input error! Try again..." << std::endl;
             std::cin.clear();
+            std::cin.ignore(10000, '\n');
+            Sleep(2000);
         }
     } while ((choice < 1) || (choice > 7));
     if (choice == 7) {
@@ -53,7 +54,13 @@ int Get_answer() {
 }
 int main()
 {
-    Line_descriptor sample;
+    
+    std::cout << "Enter name of metro line" << std::endl;
+    std::string name;
+    std::cin >> name;
+    Line_descriptor sample(name);
+    std::cin.ignore(80, '\n');
+    system("cls");
     int answer = 0;
     while (answer = Get_answer()) {
         system("cls");
