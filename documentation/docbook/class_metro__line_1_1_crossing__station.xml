@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_metro__line_1_1_crossing__station" xml:lang="en-US">
+<title>Metro_line::Crossing_station Class Reference</title>
+<indexterm><primary>Metro_line::Crossing_station</primary></indexterm>
+<para>
+<computeroutput>#include &lt;Station_discriptors.h&gt;</computeroutput>
+</para>
+Inheritance diagram for Metro_line::Crossing_station:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_metro__line_1_1_crossing__station__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for Metro_line::Crossing_station:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_metro__line_1_1_crossing__station__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_metro__line_1_1_crossing__station_1acaaaf7b46026cf668800e047c79c9350">Crossing_station</link> (std::string name=&quot;undefined&quot;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_metro__line_1_1_crossing__station_1a4e58baace28c0db546cac19e7aebca33">Crossing_station</link> (std::string lines[3], std::string name=&quot;undefined&quot;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_metro__line_1_1_crossing__station">Crossing_station</link> * <link linkend="_class_metro__line_1_1_crossing__station_1a1296ba3d1a418a207fdeceb0c51011d8">copy</link> () const</para>
+</listitem>
+            <listitem><para>std::list&lt; std::string &gt; <link linkend="_class_metro__line_1_1_crossing__station_1aa456274aadacef98052ea2b8e1e7f7dd">get_transition_lines</link> () const</para>
+</listitem>
+            <listitem><para><link linkend="_class_metro__line_1_1_crossing__station">Crossing_station</link> &amp; <link linkend="_class_metro__line_1_1_crossing__station_1a6fa0385624ce1d717be96df88695325d">add_transition_line</link> (std::string name)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>virtual std::ostream &amp; <link linkend="_class_metro__line_1_1_crossing__station_1a1aa3a78b1987ae1270c7a4dac4df77e8">show_info</link> (std::ostream &amp;out) const</para>
+</listitem>
+            <listitem><para>virtual std::istream &amp; <link linkend="_class_metro__line_1_1_crossing__station_1a39ffafb993ec1ed29c8c3d48f1c2f213">get</link> (std::istream &amp;in)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Derived class from station class for describing station with transition </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_metro__line_1_1_crossing__station_1acaaaf7b46026cf668800e047c79c9350"/>    <section>
+    <title>Crossing_station()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Crossing_station</primary><secondary>Metro_line::Crossing_station</secondary></indexterm>
+<indexterm><primary>Metro_line::Crossing_station</primary><secondary>Crossing_station</secondary></indexterm>
+<para><computeroutput>Metro_line::Crossing_station::Crossing_station (std::string name = <computeroutput>&quot;undefined&quot;</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>Empty+initialize constructor of station with transition 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>default_name</entry>
+                                <entry>
+<para>Name of created station with transition </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_class_metro__line_1_1_crossing__station_1a4e58baace28c0db546cac19e7aebca33"/>    <section>
+    <title>Crossing_station()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Crossing_station</primary><secondary>Metro_line::Crossing_station</secondary></indexterm>
+<indexterm><primary>Metro_line::Crossing_station</primary><secondary>Crossing_station</secondary></indexterm>
+<para><computeroutput>Metro_line::Crossing_station::Crossing_station (std::string lines[3], std::string name = <computeroutput>&quot;undefined&quot;</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>2 Initialize constructors of station with transition 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>name</entry>
+                                <entry>
+<para>Name of created station with transition (Optional parameter) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>Static</entry>
+                                <entry>
+<para>array of lines for transition that this station has </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_metro__line_1_1_crossing__station_1a6fa0385624ce1d717be96df88695325d"/>    <section>
+    <title>add_transition_line()</title>
+<indexterm><primary>add_transition_line</primary><secondary>Metro_line::Crossing_station</secondary></indexterm>
+<indexterm><primary>Metro_line::Crossing_station</primary><secondary>add_transition_line</secondary></indexterm>
+<para><computeroutput><link linkend="_class_metro__line_1_1_crossing__station">Crossing_station</link> &amp; Metro_line::Crossing_station::add_transition_line (std::string name)</computeroutput></para>
+<para>Function to add transition line in array of transition lines of curren station with transition 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>name</entry>
+                                <entry>
+<para>Name of transition line </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A reference on <link linkend="_class_metro__line_1_1_crossing__station">Crossing_station</link> class instance </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_crossing__station_1a1296ba3d1a418a207fdeceb0c51011d8"/>    <section>
+    <title>copy()</title>
+<indexterm><primary>copy</primary><secondary>Metro_line::Crossing_station</secondary></indexterm>
+<indexterm><primary>Metro_line::Crossing_station</primary><secondary>copy</secondary></indexterm>
+<para><computeroutput><link linkend="_class_metro__line_1_1_crossing__station">Crossing_station</link>* Metro_line::Crossing_station::copy ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Virtual function to create copy of pointer on specific class <formalpara><title>Returns</title>
+
+<para>Pointer on <link linkend="_class_metro__line_1_1_crossing__station">Crossing_station</link> class </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_class_metro__line_1_1_station_1ae697c0773971b9b27d88f6173930acac">Metro_line::Station</link>.</para>
+    </section><anchor xml:id="_class_metro__line_1_1_crossing__station_1a39ffafb993ec1ed29c8c3d48f1c2f213"/>    <section>
+    <title>get()</title>
+<indexterm><primary>get</primary><secondary>Metro_line::Crossing_station</secondary></indexterm>
+<indexterm><primary>Metro_line::Crossing_station</primary><secondary>get</secondary></indexterm>
+<para><computeroutput>std::istream &amp; Metro_line::Crossing_station::get (std::istream &amp; in)<computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Virtual function to using in Streaming intput \params out Reference to the intput stream <formalpara><title>Returns</title>
+
+<para>Reference to intput stream </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_class_metro__line_1_1_station_1a76cf34b39ddb7c8f2100dfbdca641b1e">Metro_line::Station</link>.</para>
+    </section><anchor xml:id="_class_metro__line_1_1_crossing__station_1aa456274aadacef98052ea2b8e1e7f7dd"/>    <section>
+    <title>get_transition_lines()</title>
+<indexterm><primary>get_transition_lines</primary><secondary>Metro_line::Crossing_station</secondary></indexterm>
+<indexterm><primary>Metro_line::Crossing_station</primary><secondary>get_transition_lines</secondary></indexterm>
+<para><computeroutput>std::list&lt; std::string &gt; Metro_line::Crossing_station::get_transition_lines ( ) const</computeroutput></para>
+<para>Function to get lines of transition from station with transition <formalpara><title>Returns</title>
+
+<para>List of transition lines </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_crossing__station_1a1aa3a78b1987ae1270c7a4dac4df77e8"/>    <section>
+    <title>show_info()</title>
+<indexterm><primary>show_info</primary><secondary>Metro_line::Crossing_station</secondary></indexterm>
+<indexterm><primary>Metro_line::Crossing_station</primary><secondary>show_info</secondary></indexterm>
+<para><computeroutput>std::ostream &amp; Metro_line::Crossing_station::show_info (std::ostream &amp; out) const<computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Virtual function to using in Streaming output \params out Reference to the output stream <formalpara><title>Returns</title>
+
+<para>Reference to output stream </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_class_metro__line_1_1_station_1ad166a0b38c8ca6167825a11def011676">Metro_line::Station</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Users/79192/source/repos/Metro_line/Station_discriptors/Station_discriptors.hC:/Users/79192/source/repos/Metro_line/Station_discriptors/Station_discriptors.cpp</section>
+</section>

@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_metro__line_1_1_line__descriptor" xml:lang="en-US">
+<title>Metro_line::Line_descriptor Class Reference</title>
+<indexterm><primary>Metro_line::Line_descriptor</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_metro__line_1_1_line__descriptor_1a9b50d309a331390f4c891a8aeab32e75">Line_descriptor</link> (std::string default_name=&quot;undefined&quot;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_metro__line_1_1_line__descriptor_1a43e6e3cc8617d65e5bfbacd313a71444">Line_descriptor</link> (const <link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp;line)</para>
+</listitem>
+            <listitem><para><link linkend="_class_metro__line_1_1_line__descriptor_1aa00e7f15527eb022589ab5cd53bc1c78">Line_descriptor</link> (<link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp;&amp;line)</para>
+</listitem>
+            <listitem><para><link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp; <link linkend="_class_metro__line_1_1_line__descriptor_1a7a17cdbf3a56a17191e1a75dbdbc32c8">operator=</link> (const <link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp;second)</para>
+</listitem>
+            <listitem><para><link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp; <link linkend="_class_metro__line_1_1_line__descriptor_1af2343438e72c9f9496741bd3486266fe">operator=</link> (<link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp;&amp;line)</para>
+</listitem>
+            <listitem><para><link linkend="_class_metro__line_1_1_line__descriptor_1a5283f13e22e2fdefecaeaee31ab114fb">~Line_descriptor</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_metro__line_1_1_station">Station</link> * <link linkend="_class_metro__line_1_1_line__descriptor_1a37e532283a3c05f087abefa5e922311e">find_by_transition</link> (std::string name) const</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_metro__line_1_1_line__descriptor_1a9c64ce4b0b00030b4783328c34379c20">remove_station</link> (std::string name)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_metro__line_1_1_line__descriptor_1a64973f6753f71c618b3eb77f4ac8141d">replace_station</link> (std::string name, <link linkend="_class_metro__line_1_1_station">Station</link> *sample)</para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_metro__line_1_1_line__descriptor_1a2901cddd2d87e559c83e6a6873f1e05e">get_name</link> () const</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_metro__line_1_1_line__descriptor_1adda8c0fc763bb9462de9f3d58a352b96">insert</link> (<link linkend="_class_metro__line_1_1_station">Station</link> *new_elem, std::list&lt; <link linkend="_class_metro__line_1_1_station">Station</link> * &gt;::iterator it)</para>
+</listitem>
+            <listitem><para><link linkend="_class_metro__line_1_1_station">Station</link> * <link linkend="_class_metro__line_1_1_line__descriptor_1a295967affdb9d82b8606f3d8d080ac39">find</link> (std::string name) const</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_metro__line_1_1_line__descriptor_1af194331c65f34dfcf8021ddc2879db8d">show_table</link> ()</para>
+</listitem>
+            <listitem><para>std::list&lt; <link linkend="_class_metro__line_1_1_station">Station</link> * &gt;::iterator <link linkend="_class_metro__line_1_1_line__descriptor_1a38fd43a60670a1b899a1705f7dc4e301">iter_begin</link> ()</para>
+</listitem>
+            <listitem><para>std::list&lt; <link linkend="_class_metro__line_1_1_station">Station</link> * &gt;::iterator <link linkend="_class_metro__line_1_1_line__descriptor_1ace7f649c917106695e28da977c19cecc">iter_end</link> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_metro__line_1_1_line__descriptor_1aa8239b3a623ee209c72dcc4e1dabf18c"/>bool <emphasis role="strong">is_line_empty</emphasis> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_metro__line_1_1_line__descriptor_1a9b50d309a331390f4c891a8aeab32e75"/>    <section>
+    <title>Line_descriptor()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>Line_descriptor</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>Line_descriptor</secondary></indexterm>
+<para><computeroutput>Metro_line::Line_descriptor::Line_descriptor (std::string default_name = <computeroutput>&quot;undefined&quot;</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>Empty constructor+initializing constructor of line sescriptor 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>default_name</entry>
+                                <entry>
+<para>Name of created line </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1a43e6e3cc8617d65e5bfbacd313a71444"/>    <section>
+    <title>Line_descriptor()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>Line_descriptor</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>Line_descriptor</secondary></indexterm>
+<para><computeroutput>Metro_line::Line_descriptor::Line_descriptor (const <link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp; line)</computeroutput></para>
+<para>Copy constructor 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>line</entry>
+                                <entry>
+<para>Const reference on <link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> class </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1aa00e7f15527eb022589ab5cd53bc1c78"/>    <section>
+    <title>Line_descriptor()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>Line_descriptor</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>Line_descriptor</secondary></indexterm>
+<para><computeroutput>Metro_line::Line_descriptor::Line_descriptor (<link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp;&amp; line)</computeroutput></para>
+<para>Moving constructor for line descriptor 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>line</entry>
+                                <entry>
+<para>r-value reference on <link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> class </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1a5283f13e22e2fdefecaeaee31ab114fb"/>    <section>
+    <title>~Line_descriptor()</title>
+<indexterm><primary>~Line_descriptor</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>~Line_descriptor</secondary></indexterm>
+<para><computeroutput>Metro_line::Line_descriptor::~Line_descriptor ( )</computeroutput></para>
+<para>Destructor for line descriptor </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_metro__line_1_1_line__descriptor_1a295967affdb9d82b8606f3d8d080ac39"/>    <section>
+    <title>find()</title>
+<indexterm><primary>find</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>find</secondary></indexterm>
+<para><computeroutput><link linkend="_class_metro__line_1_1_station">Station</link> * Metro_line::Line_descriptor::find (std::string name) const</computeroutput></para>
+<para>Function to search for a station by its name 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>name</entry>
+                                <entry>
+<para>Name of station </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Pointer on base class <link linkend="_class_metro__line_1_1_station">Station</link> </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1a37e532283a3c05f087abefa5e922311e"/>    <section>
+    <title>find_by_transition()</title>
+<indexterm><primary>find_by_transition</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>find_by_transition</secondary></indexterm>
+<para><computeroutput><link linkend="_class_metro__line_1_1_station">Station</link> * Metro_line::Line_descriptor::find_by_transition (std::string name) const</computeroutput></para>
+<para>Function to search for a station by the name of its associated transition station 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>name</entry>
+                                <entry>
+<para>Name of station with transition </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Pointer on base class <link linkend="_class_metro__line_1_1_station">Station</link> </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1a2901cddd2d87e559c83e6a6873f1e05e"/>    <section>
+    <title>get_name()</title>
+<indexterm><primary>get_name</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>get_name</secondary></indexterm>
+<para><computeroutput>std::string Metro_line::Line_descriptor::get_name ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>name of created line </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1adda8c0fc763bb9462de9f3d58a352b96"/>    <section>
+    <title>insert()</title>
+<indexterm><primary>insert</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>insert</secondary></indexterm>
+<para><computeroutput>void Metro_line::Line_descriptor::insert (<link linkend="_class_metro__line_1_1_station">Station</link> * new_elem, std::list&lt; <link linkend="_class_metro__line_1_1_station">Station</link> * &gt;::iterator it)</computeroutput></para>
+<para>Inserting a station into a station table 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>new_elem</entry>
+                                <entry>
+<para>Pointer on instance of new station </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>value</entry>
+                                <entry>
+<para>of iterator of STL list of pointer on <link linkend="_class_metro__line_1_1_station">Station</link> class </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1a38fd43a60670a1b899a1705f7dc4e301"/>    <section>
+    <title>iter_begin()</title>
+<indexterm><primary>iter_begin</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>iter_begin</secondary></indexterm>
+<para><computeroutput>std::list&lt;<link linkend="_class_metro__line_1_1_station">Station</link>*&gt;::iterator Metro_line::Line_descriptor::iter_begin ( )<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>value of iterator in the beginning of list of station </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1ace7f649c917106695e28da977c19cecc"/>    <section>
+    <title>iter_end()</title>
+<indexterm><primary>iter_end</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>iter_end</secondary></indexterm>
+<para><computeroutput>std::list&lt;<link linkend="_class_metro__line_1_1_station">Station</link>*&gt;::iterator Metro_line::Line_descriptor::iter_end ( )<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>value of iterator in the end of list of station </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1a7a17cdbf3a56a17191e1a75dbdbc32c8"/>    <section>
+    <title>operator=()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>operator=</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>operator=</secondary></indexterm>
+<para><computeroutput><link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp; Metro_line::Line_descriptor::operator= (const <link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp; second)</computeroutput></para>
+<para>Copy assignment operator 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>second</entry>
+                                <entry>
+<para>Const reference on <link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> class </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>reference on <link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> class </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1af2343438e72c9f9496741bd3486266fe"/>    <section>
+    <title>operator=()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>operator=</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>operator=</secondary></indexterm>
+<para><computeroutput><link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp; Metro_line::Line_descriptor::operator= (<link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> &amp;&amp; line)</computeroutput></para>
+<para>Move assignment operator 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>second</entry>
+                                <entry>
+<para>r-value reference on <link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> class </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>reference on <link linkend="_class_metro__line_1_1_line__descriptor">Line_descriptor</link> class </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1a9c64ce4b0b00030b4783328c34379c20"/>    <section>
+    <title>remove_station()</title>
+<indexterm><primary>remove_station</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>remove_station</secondary></indexterm>
+<para><computeroutput>int Metro_line::Line_descriptor::remove_station (std::string name)</computeroutput></para>
+<para>Function to remove station from line by its name 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>name</entry>
+                                <entry>
+<para>Name of station which user want to remove </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>int value meaning success or failure of operation </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1a64973f6753f71c618b3eb77f4ac8141d"/>    <section>
+    <title>replace_station()</title>
+<indexterm><primary>replace_station</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>replace_station</secondary></indexterm>
+<para><computeroutput>void Metro_line::Line_descriptor::replace_station (std::string name, <link linkend="_class_metro__line_1_1_station">Station</link> * sample)</computeroutput></para>
+<para>Function to replace station in line 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>name</entry>
+                                <entry>
+<para>Name of station which user want to replace </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>sample</entry>
+                                <entry>
+<para>Pointer on station which you want insert on place of removed station pointer </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_class_metro__line_1_1_line__descriptor_1af194331c65f34dfcf8021ddc2879db8d"/>    <section>
+    <title>show_table()</title>
+<indexterm><primary>show_table</primary><secondary>Metro_line::Line_descriptor</secondary></indexterm>
+<indexterm><primary>Metro_line::Line_descriptor</primary><secondary>show_table</secondary></indexterm>
+<para><computeroutput>void Metro_line::Line_descriptor::show_table ( )</computeroutput></para>
+<para>Function for output of station table in a stream </para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+C:/Users/79192/source/repos/Metro_line/Metro_line/Line_descriptor.hC:/Users/79192/source/repos/Metro_line/Metro_line/Line_descriptor.cpp</section>
+</section>

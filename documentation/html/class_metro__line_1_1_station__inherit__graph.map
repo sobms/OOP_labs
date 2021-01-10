@@ -1,0 +1,5 @@
+<map id="Metro_line::Station" name="Metro_line::Station">
+<area shape="rect" id="node1" title=" " alt="" coords="100,5,231,32"/>
+<area shape="rect" id="node2" href="$class_metro__line_1_1_crossing__station.html" title=" " alt="" coords="5,80,147,121"/>
+<area shape="rect" id="node3" href="$class_metro__line_1_1_transfer__node.html" title=" " alt="" coords="171,87,341,114"/>
+</map>

@@ -1,0 +1,158 @@
+\hypertarget{class_metro__line_1_1_transfer__node}{}\doxysection{Metro\+\_\+line\+::Transfer\+\_\+node Class Reference}
+\label{class_metro__line_1_1_transfer__node}\index{Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}}
+
+
+{\ttfamily \#include $<$Station\+\_\+discriptors.\+h$>$}
+
+
+
+Inheritance diagram for Metro\+\_\+line\+::Transfer\+\_\+node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{class_metro__line_1_1_transfer__node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Metro\+\_\+line\+::Transfer\+\_\+node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{class_metro__line_1_1_transfer__node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_metro__line_1_1_transfer__node_a2d1ef1d4d26ebba8e11d1ad24db15da2}{Transfer\+\_\+node}} (std\+::string default\+\_\+name=\char`\"{}undefined\char`\"{})
+\item 
+\mbox{\hyperlink{class_metro__line_1_1_transfer__node_a3318ae7edaa1686218e9993fa1d43af7}{Transfer\+\_\+node}} (\mbox{\hyperlink{struct_metro__line_1_1transition__descriptor}{transition\+\_\+descriptor}} tr\mbox{[}3\mbox{]}, std\+::string default\+\_\+name=\char`\"{}undefined\char`\"{})
+\item 
+\mbox{\hyperlink{class_metro__line_1_1_transfer__node}{Transfer\+\_\+node}} $\ast$ \mbox{\hyperlink{class_metro__line_1_1_transfer__node_adcead7c890f6d3b8cdd3e7dfcfceb74e}{copy}} () const
+\item 
+\mbox{\Hypertarget{class_metro__line_1_1_transfer__node_aa0b3204575ddb3d4df2fef51022d0516}\label{class_metro__line_1_1_transfer__node_aa0b3204575ddb3d4df2fef51022d0516}} 
+\mbox{\hyperlink{class_metro__line_1_1_station}{Station}} \& {\bfseries add\+\_\+transition} (\mbox{\hyperlink{struct_metro__line_1_1transition__descriptor}{transition\+\_\+descriptor}} transition\+\_\+name)
+\item 
+std\+::list$<$ \mbox{\hyperlink{struct_metro__line_1_1transition__descriptor}{transition\+\_\+descriptor}} $>$ \mbox{\hyperlink{class_metro__line_1_1_transfer__node_ab5443daf728b65db9ac023da85503086}{get\+\_\+transitions\+\_\+list}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::ostream \& \mbox{\hyperlink{class_metro__line_1_1_transfer__node_a398fbd2dce3583029e5ba4fa2955556a}{show\+\_\+info}} (std\+::ostream \&out) const
+\item 
+virtual std\+::istream \& \mbox{\hyperlink{class_metro__line_1_1_transfer__node_a38196a98640250b427ad175ffdf66731}{get}} (std\+::istream \&in)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_metro__line_1_1_transfer__node_a39b3aa64949b21451a98f7831c54ee24}{operator$<$$<$}} (std\+::ostream out, const \mbox{\hyperlink{struct_metro__line_1_1transition__descriptor}{transition\+\_\+descriptor}} \&tr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Derived class from station class for describing transfer node 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_metro__line_1_1_transfer__node_a2d1ef1d4d26ebba8e11d1ad24db15da2}\label{class_metro__line_1_1_transfer__node_a2d1ef1d4d26ebba8e11d1ad24db15da2}} 
+\index{Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}!Transfer\_node@{Transfer\_node}}
+\index{Transfer\_node@{Transfer\_node}!Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}}
+\doxysubsubsection{\texorpdfstring{Transfer\_node()}{Transfer\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Metro\+\_\+line\+::\+Transfer\+\_\+node\+::\+Transfer\+\_\+node (\begin{DoxyParamCaption}\item[{std\+::string}]{default\+\_\+name = {\ttfamily \char`\"{}undefined\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Empty+initialize constructor of transfer node 
+\begin{DoxyParams}{Parameters}
+{\em default\+\_\+name} & Name of created station with transition \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_metro__line_1_1_transfer__node_a3318ae7edaa1686218e9993fa1d43af7}\label{class_metro__line_1_1_transfer__node_a3318ae7edaa1686218e9993fa1d43af7}} 
+\index{Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}!Transfer\_node@{Transfer\_node}}
+\index{Transfer\_node@{Transfer\_node}!Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}}
+\doxysubsubsection{\texorpdfstring{Transfer\_node()}{Transfer\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Metro\+\_\+line\+::\+Transfer\+\_\+node\+::\+Transfer\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_metro__line_1_1transition__descriptor}{transition\+\_\+descriptor}}}]{tr\mbox{[}3\mbox{]},  }\item[{std\+::string}]{default\+\_\+name = {\ttfamily \char`\"{}undefined\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+2 Initialize constructors of transfer node 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of created transfer node(\+Optional parameter) \\
+\hline
+{\em Static} & array of pairs describing transtitions that this station has \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_metro__line_1_1_transfer__node_adcead7c890f6d3b8cdd3e7dfcfceb74e}\label{class_metro__line_1_1_transfer__node_adcead7c890f6d3b8cdd3e7dfcfceb74e}} 
+\index{Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}!copy@{copy}}
+\index{copy@{copy}!Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_metro__line_1_1_transfer__node}{Transfer\+\_\+node}}$\ast$ Metro\+\_\+line\+::\+Transfer\+\_\+node\+::copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Virtual function to create copy of pointer on specific class \begin{DoxyReturn}{Returns}
+Pointer on\+Transfer\+\_\+station class 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_metro__line_1_1_station_ae697c0773971b9b27d88f6173930acac}{Metro\+\_\+line\+::\+Station}}.
+
+\mbox{\Hypertarget{class_metro__line_1_1_transfer__node_a38196a98640250b427ad175ffdf66731}\label{class_metro__line_1_1_transfer__node_a38196a98640250b427ad175ffdf66731}} 
+\index{Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}!get@{get}}
+\index{get@{get}!Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily std\+::istream \& Metro\+\_\+line\+::\+Transfer\+\_\+node\+::get (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Virtual function to using in Streaming intput \textbackslash{}params out Reference to the intput stream \begin{DoxyReturn}{Returns}
+Reference to intput stream 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_metro__line_1_1_station_a76cf34b39ddb7c8f2100dfbdca641b1e}{Metro\+\_\+line\+::\+Station}}.
+
+\mbox{\Hypertarget{class_metro__line_1_1_transfer__node_ab5443daf728b65db9ac023da85503086}\label{class_metro__line_1_1_transfer__node_ab5443daf728b65db9ac023da85503086}} 
+\index{Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}!get\_transitions\_list@{get\_transitions\_list}}
+\index{get\_transitions\_list@{get\_transitions\_list}!Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}}
+\doxysubsubsection{\texorpdfstring{get\_transitions\_list()}{get\_transitions\_list()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{struct_metro__line_1_1transition__descriptor}{transition\+\_\+descriptor}} $>$ Metro\+\_\+line\+::\+Transfer\+\_\+node\+::get\+\_\+transitions\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Function to get list of transitions of current transfer node \begin{DoxyReturn}{Returns}
+List of transitions(pairs(string,string)) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_metro__line_1_1_transfer__node_a398fbd2dce3583029e5ba4fa2955556a}\label{class_metro__line_1_1_transfer__node_a398fbd2dce3583029e5ba4fa2955556a}} 
+\index{Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}!show\_info@{show\_info}}
+\index{show\_info@{show\_info}!Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}}
+\doxysubsubsection{\texorpdfstring{show\_info()}{show\_info()}}
+{\footnotesize\ttfamily std\+::ostream \& Metro\+\_\+line\+::\+Transfer\+\_\+node\+::show\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Virtual function to using in Streaming output \textbackslash{}params out Reference to the output stream \begin{DoxyReturn}{Returns}
+Reference to output stream 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_metro__line_1_1_station_ad166a0b38c8ca6167825a11def011676}{Metro\+\_\+line\+::\+Station}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_metro__line_1_1_transfer__node_a39b3aa64949b21451a98f7831c54ee24}\label{class_metro__line_1_1_transfer__node_a39b3aa64949b21451a98f7831c54ee24}} 
+\index{Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Metro\_line::Transfer\_node@{Metro\_line::Transfer\_node}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream}]{out,  }\item[{const \mbox{\hyperlink{struct_metro__line_1_1transition__descriptor}{transition\+\_\+descriptor}} \&}]{tr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Operator for streaming output information about transition of transfer node 
+\begin{DoxyParams}{Parameters}
+{\em out} & The output stream \\
+\hline
+{\em tr} & A constant reference to an instance of \mbox{\hyperlink{struct_metro__line_1_1transition__descriptor}{transition\+\_\+descriptor}} struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to a stream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/79192/source/repos/\+Metro\+\_\+line/\+Station\+\_\+discriptors/Station\+\_\+discriptors.\+h\item 
+C\+:/\+Users/79192/source/repos/\+Metro\+\_\+line/\+Station\+\_\+discriptors/Station\+\_\+discriptors.\+cpp\end{DoxyCompactItemize}

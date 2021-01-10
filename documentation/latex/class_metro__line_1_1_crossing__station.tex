@@ -1,0 +1,147 @@
+\hypertarget{class_metro__line_1_1_crossing__station}{}\doxysection{Metro\+\_\+line\+::Crossing\+\_\+station Class Reference}
+\label{class_metro__line_1_1_crossing__station}\index{Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}}
+
+
+{\ttfamily \#include $<$Station\+\_\+discriptors.\+h$>$}
+
+
+
+Inheritance diagram for Metro\+\_\+line\+::Crossing\+\_\+station\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{class_metro__line_1_1_crossing__station__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Metro\+\_\+line\+::Crossing\+\_\+station\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{class_metro__line_1_1_crossing__station__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_metro__line_1_1_crossing__station_acaaaf7b46026cf668800e047c79c9350}{Crossing\+\_\+station}} (std\+::string name=\char`\"{}undefined\char`\"{})
+\item 
+\mbox{\hyperlink{class_metro__line_1_1_crossing__station_a4e58baace28c0db546cac19e7aebca33}{Crossing\+\_\+station}} (std\+::string lines\mbox{[}3\mbox{]}, std\+::string name=\char`\"{}undefined\char`\"{})
+\item 
+\mbox{\hyperlink{class_metro__line_1_1_crossing__station}{Crossing\+\_\+station}} $\ast$ \mbox{\hyperlink{class_metro__line_1_1_crossing__station_a1296ba3d1a418a207fdeceb0c51011d8}{copy}} () const
+\item 
+std\+::list$<$ std\+::string $>$ \mbox{\hyperlink{class_metro__line_1_1_crossing__station_aa456274aadacef98052ea2b8e1e7f7dd}{get\+\_\+transition\+\_\+lines}} () const
+\item 
+\mbox{\hyperlink{class_metro__line_1_1_crossing__station}{Crossing\+\_\+station}} \& \mbox{\hyperlink{class_metro__line_1_1_crossing__station_a6fa0385624ce1d717be96df88695325d}{add\+\_\+transition\+\_\+line}} (std\+::string name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::ostream \& \mbox{\hyperlink{class_metro__line_1_1_crossing__station_a1aa3a78b1987ae1270c7a4dac4df77e8}{show\+\_\+info}} (std\+::ostream \&out) const
+\item 
+virtual std\+::istream \& \mbox{\hyperlink{class_metro__line_1_1_crossing__station_a39ffafb993ec1ed29c8c3d48f1c2f213}{get}} (std\+::istream \&in)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Derived class from station class for describing station with transition 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_metro__line_1_1_crossing__station_acaaaf7b46026cf668800e047c79c9350}\label{class_metro__line_1_1_crossing__station_acaaaf7b46026cf668800e047c79c9350}} 
+\index{Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}!Crossing\_station@{Crossing\_station}}
+\index{Crossing\_station@{Crossing\_station}!Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}}
+\doxysubsubsection{\texorpdfstring{Crossing\_station()}{Crossing\_station()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Metro\+\_\+line\+::\+Crossing\+\_\+station\+::\+Crossing\+\_\+station (\begin{DoxyParamCaption}\item[{std\+::string}]{name = {\ttfamily \char`\"{}undefined\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Empty+initialize constructor of station with transition 
+\begin{DoxyParams}{Parameters}
+{\em default\+\_\+name} & Name of created station with transition \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_metro__line_1_1_crossing__station_a4e58baace28c0db546cac19e7aebca33}\label{class_metro__line_1_1_crossing__station_a4e58baace28c0db546cac19e7aebca33}} 
+\index{Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}!Crossing\_station@{Crossing\_station}}
+\index{Crossing\_station@{Crossing\_station}!Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}}
+\doxysubsubsection{\texorpdfstring{Crossing\_station()}{Crossing\_station()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Metro\+\_\+line\+::\+Crossing\+\_\+station\+::\+Crossing\+\_\+station (\begin{DoxyParamCaption}\item[{std\+::string}]{lines\mbox{[}3\mbox{]},  }\item[{std\+::string}]{name = {\ttfamily \char`\"{}undefined\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+2 Initialize constructors of station with transition 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of created station with transition (Optional parameter) \\
+\hline
+{\em Static} & array of lines for transition that this station has \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_metro__line_1_1_crossing__station_a6fa0385624ce1d717be96df88695325d}\label{class_metro__line_1_1_crossing__station_a6fa0385624ce1d717be96df88695325d}} 
+\index{Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}!add\_transition\_line@{add\_transition\_line}}
+\index{add\_transition\_line@{add\_transition\_line}!Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}}
+\doxysubsubsection{\texorpdfstring{add\_transition\_line()}{add\_transition\_line()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_metro__line_1_1_crossing__station}{Crossing\+\_\+station}} \& Metro\+\_\+line\+::\+Crossing\+\_\+station\+::add\+\_\+transition\+\_\+line (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+Function to add transition line in array of transition lines of curren station with transition 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of transition line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference on \mbox{\hyperlink{class_metro__line_1_1_crossing__station}{Crossing\+\_\+station}} class instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_metro__line_1_1_crossing__station_a1296ba3d1a418a207fdeceb0c51011d8}\label{class_metro__line_1_1_crossing__station_a1296ba3d1a418a207fdeceb0c51011d8}} 
+\index{Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}!copy@{copy}}
+\index{copy@{copy}!Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_metro__line_1_1_crossing__station}{Crossing\+\_\+station}}$\ast$ Metro\+\_\+line\+::\+Crossing\+\_\+station\+::copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Virtual function to create copy of pointer on specific class \begin{DoxyReturn}{Returns}
+Pointer on \mbox{\hyperlink{class_metro__line_1_1_crossing__station}{Crossing\+\_\+station}} class 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_metro__line_1_1_station_ae697c0773971b9b27d88f6173930acac}{Metro\+\_\+line\+::\+Station}}.
+
+\mbox{\Hypertarget{class_metro__line_1_1_crossing__station_a39ffafb993ec1ed29c8c3d48f1c2f213}\label{class_metro__line_1_1_crossing__station_a39ffafb993ec1ed29c8c3d48f1c2f213}} 
+\index{Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}!get@{get}}
+\index{get@{get}!Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily std\+::istream \& Metro\+\_\+line\+::\+Crossing\+\_\+station\+::get (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Virtual function to using in Streaming intput \textbackslash{}params out Reference to the intput stream \begin{DoxyReturn}{Returns}
+Reference to intput stream 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_metro__line_1_1_station_a76cf34b39ddb7c8f2100dfbdca641b1e}{Metro\+\_\+line\+::\+Station}}.
+
+\mbox{\Hypertarget{class_metro__line_1_1_crossing__station_aa456274aadacef98052ea2b8e1e7f7dd}\label{class_metro__line_1_1_crossing__station_aa456274aadacef98052ea2b8e1e7f7dd}} 
+\index{Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}!get\_transition\_lines@{get\_transition\_lines}}
+\index{get\_transition\_lines@{get\_transition\_lines}!Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}}
+\doxysubsubsection{\texorpdfstring{get\_transition\_lines()}{get\_transition\_lines()}}
+{\footnotesize\ttfamily std\+::list$<$ std\+::string $>$ Metro\+\_\+line\+::\+Crossing\+\_\+station\+::get\+\_\+transition\+\_\+lines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Function to get lines of transition from station with transition \begin{DoxyReturn}{Returns}
+List of transition lines 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_metro__line_1_1_crossing__station_a1aa3a78b1987ae1270c7a4dac4df77e8}\label{class_metro__line_1_1_crossing__station_a1aa3a78b1987ae1270c7a4dac4df77e8}} 
+\index{Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}!show\_info@{show\_info}}
+\index{show\_info@{show\_info}!Metro\_line::Crossing\_station@{Metro\_line::Crossing\_station}}
+\doxysubsubsection{\texorpdfstring{show\_info()}{show\_info()}}
+{\footnotesize\ttfamily std\+::ostream \& Metro\+\_\+line\+::\+Crossing\+\_\+station\+::show\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Virtual function to using in Streaming output \textbackslash{}params out Reference to the output stream \begin{DoxyReturn}{Returns}
+Reference to output stream 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_metro__line_1_1_station_ad166a0b38c8ca6167825a11def011676}{Metro\+\_\+line\+::\+Station}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/79192/source/repos/\+Metro\+\_\+line/\+Station\+\_\+discriptors/Station\+\_\+discriptors.\+h\item 
+C\+:/\+Users/79192/source/repos/\+Metro\+\_\+line/\+Station\+\_\+discriptors/Station\+\_\+discriptors.\+cpp\end{DoxyCompactItemize}

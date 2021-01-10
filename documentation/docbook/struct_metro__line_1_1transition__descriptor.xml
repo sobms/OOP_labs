@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_metro__line_1_1transition__descriptor" xml:lang="en-US">
+<title>Metro_line::transition_descriptor Struct Reference</title>
+<indexterm><primary>Metro_line::transition_descriptor</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_struct_metro__line_1_1transition__descriptor_1aa1dc44bae0c4ee8c1b58e8519efc27a5"/>std::string <emphasis role="strong">line_name</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_struct_metro__line_1_1transition__descriptor_1ab4ac179c8c2cd324d2606650aea1926c"/>std::string <emphasis role="strong">station_name</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<para>
+The documentation for this struct was generated from the following file:</para>
+C:/Users/79192/source/repos/Metro_line/Station_discriptors/Station_discriptors.h</section>

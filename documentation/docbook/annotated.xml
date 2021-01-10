@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Class List</title>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_class_metro__line_1_1_crossing__station">Metro_line::Crossing_station</link><link linkend="_class_metro__line_1_1_line__descriptor">Metro_line::Line_descriptor</link><link linkend="_class_metro__line_1_1_station">Metro_line::Station</link><link linkend="_class_metro__line_1_1_transfer__node">Metro_line::Transfer_node</link><link linkend="_struct_metro__line_1_1transition__descriptor">Metro_line::transition_descriptor</link></section>

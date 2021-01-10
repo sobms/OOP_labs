@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_metro__line_1_1_station" xml:lang="en-US">
+<title>Metro_line::Station Class Reference</title>
+<indexterm><primary>Metro_line::Station</primary></indexterm>
+Inheritance diagram for Metro_line::Station:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_metro__line_1_1_station__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_metro__line_1_1_station_1a962a5e4e08c0e3680d8abf2d03a52ab9">Station</link> (std::string default_name=&quot;undefined&quot;)</para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_metro__line_1_1_station_1a33f37e1396975b7dc816c402cbc7a5e1">get_name</link> () const</para>
+</listitem>
+            <listitem><para><link linkend="_class_metro__line_1_1_station">Station</link> &amp; <link linkend="_class_metro__line_1_1_station_1a262b9407081e29b4fe2b80b34656b3e3">change_name</link> (const std::string &amp;name2)</para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_metro__line_1_1_station_1af814abb46a3e70f568540c291d8ba50c">get_type</link> () const</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_metro__line_1_1_station">Station</link> * <link linkend="_class_metro__line_1_1_station_1ae697c0773971b9b27d88f6173930acac">copy</link> () const</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>virtual std::ostream &amp; <link linkend="_class_metro__line_1_1_station_1ad166a0b38c8ca6167825a11def011676">show_info</link> (std::ostream &amp;out) const</para>
+</listitem>
+            <listitem><para>virtual std::istream &amp; <link linkend="_class_metro__line_1_1_station_1a76cf34b39ddb7c8f2100dfbdca641b1e">get</link> (std::istream &amp;in)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Friends    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_metro__line_1_1_station">Station</link> * <link linkend="_class_metro__line_1_1_station_1a9126304009e75d56fdbb33519f461eab">change_type</link> (const <link linkend="_class_metro__line_1_1_station">Station</link> *st)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_class_metro__line_1_1_station_1a6966c4810bacc2a6ec1bc632af130e29"/>std::ostream &amp; <emphasis role="strong">operator&lt;&lt;</emphasis> (std::ostream &amp;out, const <link linkend="_class_metro__line_1_1_station">Station</link> &amp;sample)</para>
+</listitem>
+            <listitem><para>std::istream &amp; <link linkend="_class_metro__line_1_1_station_1a6891611b5ac5c57ca160ae402fc1a0e4">operator&gt;&gt;</link> (std::istream &amp;in, <link linkend="_class_metro__line_1_1_station">Station</link> &amp;sample)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_metro__line_1_1_station_1a962a5e4e08c0e3680d8abf2d03a52ab9"/>    <section>
+    <title>Station()</title>
+<indexterm><primary>Station</primary><secondary>Metro_line::Station</secondary></indexterm>
+<indexterm><primary>Metro_line::Station</primary><secondary>Station</secondary></indexterm>
+<para><computeroutput>Metro_line::Station::Station (std::string default_name = <computeroutput>&quot;undefined&quot;</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>Empty constructor+initializing constructor 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>default_name</entry>
+                                <entry>
+<para>Name of created station </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_metro__line_1_1_station_1a262b9407081e29b4fe2b80b34656b3e3"/>    <section>
+    <title>change_name()</title>
+<indexterm><primary>change_name</primary><secondary>Metro_line::Station</secondary></indexterm>
+<indexterm><primary>Metro_line::Station</primary><secondary>change_name</secondary></indexterm>
+<para><computeroutput><link linkend="_class_metro__line_1_1_station">Station</link>&amp; Metro_line::Station::change_name (const std::string &amp; name2)<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>name2</entry>
+                                <entry>
+<para>Name to replace the current one </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Reference to an instance of the base class </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_station_1ae697c0773971b9b27d88f6173930acac"/>    <section>
+    <title>copy()</title>
+<indexterm><primary>copy</primary><secondary>Metro_line::Station</secondary></indexterm>
+<indexterm><primary>Metro_line::Station</primary><secondary>copy</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_class_metro__line_1_1_station">Station</link>* Metro_line::Station::copy ( ) const<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Virtual function to create copy of pointer on specific class <formalpara><title>Returns</title>
+
+<para>Pointer on <link linkend="_class_metro__line_1_1_station">Station</link> class </para>
+</formalpara>
+</para>
+<para>
+Reimplemented in <link linkend="_class_metro__line_1_1_transfer__node_1adcead7c890f6d3b8cdd3e7dfcfceb74e">Metro_line::Transfer_node</link>, and <link linkend="_class_metro__line_1_1_crossing__station_1a1296ba3d1a418a207fdeceb0c51011d8">Metro_line::Crossing_station</link>.</para>
+    </section><anchor xml:id="_class_metro__line_1_1_station_1a76cf34b39ddb7c8f2100dfbdca641b1e"/>    <section>
+    <title>get()</title>
+<indexterm><primary>get</primary><secondary>Metro_line::Station</secondary></indexterm>
+<indexterm><primary>Metro_line::Station</primary><secondary>get</secondary></indexterm>
+<para><computeroutput>virtual std::istream&amp; Metro_line::Station::get (std::istream &amp; in)<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Virtual function to using in Streaming intput \params out Reference to the intput stream <formalpara><title>Returns</title>
+
+<para>Reference to intput stream </para>
+</formalpara>
+</para>
+<para>
+Reimplemented in <link linkend="_class_metro__line_1_1_transfer__node_1a38196a98640250b427ad175ffdf66731">Metro_line::Transfer_node</link>, and <link linkend="_class_metro__line_1_1_crossing__station_1a39ffafb993ec1ed29c8c3d48f1c2f213">Metro_line::Crossing_station</link>.</para>
+    </section><anchor xml:id="_class_metro__line_1_1_station_1a33f37e1396975b7dc816c402cbc7a5e1"/>    <section>
+    <title>get_name()</title>
+<indexterm><primary>get_name</primary><secondary>Metro_line::Station</secondary></indexterm>
+<indexterm><primary>Metro_line::Station</primary><secondary>get_name</secondary></indexterm>
+<para><computeroutput>std::string Metro_line::Station::get_name ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>The name of the created line </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_station_1af814abb46a3e70f568540c291d8ba50c"/>    <section>
+    <title>get_type()</title>
+<indexterm><primary>get_type</primary><secondary>Metro_line::Station</secondary></indexterm>
+<indexterm><primary>Metro_line::Station</primary><secondary>get_type</secondary></indexterm>
+<para><computeroutput>std::string Metro_line::Station::get_type ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>Type of station as string </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_station_1ad166a0b38c8ca6167825a11def011676"/>    <section>
+    <title>show_info()</title>
+<indexterm><primary>show_info</primary><secondary>Metro_line::Station</secondary></indexterm>
+<indexterm><primary>Metro_line::Station</primary><secondary>show_info</secondary></indexterm>
+<para><computeroutput>virtual std::ostream&amp; Metro_line::Station::show_info (std::ostream &amp; out) const<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Virtual function to using in Streaming output \params out Reference to the output stream <formalpara><title>Returns</title>
+
+<para>Reference to output stream </para>
+</formalpara>
+</para>
+<para>
+Reimplemented in <link linkend="_class_metro__line_1_1_transfer__node_1a398fbd2dce3583029e5ba4fa2955556a">Metro_line::Transfer_node</link>, and <link linkend="_class_metro__line_1_1_crossing__station_1a1aa3a78b1987ae1270c7a4dac4df77e8">Metro_line::Crossing_station</link>.</para>
+</section>
+</section>
+<section>
+<title>Friends And Related Function Documentation</title>
+<anchor xml:id="_class_metro__line_1_1_station_1a9126304009e75d56fdbb33519f461eab"/>    <section>
+    <title>change_type</title>
+<indexterm><primary>change_type</primary><secondary>Metro_line::Station</secondary></indexterm>
+<indexterm><primary>Metro_line::Station</primary><secondary>change_type</secondary></indexterm>
+<para><computeroutput><link linkend="_class_metro__line_1_1_station">Station</link>* change_type (const <link linkend="_class_metro__line_1_1_station">Station</link> * st)<computeroutput>[friend]</computeroutput></computeroutput></para>
+<para>Friend-class function 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>st</entry>
+                                <entry>
+<para>Constant pointer to the base class </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Pointer to the base class </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_class_metro__line_1_1_station_1a6891611b5ac5c57ca160ae402fc1a0e4"/>    <section>
+    <title>operator&gt;&gt;</title>
+<indexterm><primary>operator&gt;&gt;</primary><secondary>Metro_line::Station</secondary></indexterm>
+<indexterm><primary>Metro_line::Station</primary><secondary>operator&gt;&gt;</secondary></indexterm>
+<para><computeroutput>std::istream&amp; operator&gt;&gt; (std::istream &amp; in, <link linkend="_class_metro__line_1_1_station">Station</link> &amp; sample)<computeroutput>[friend]</computeroutput></computeroutput></para>
+<para>Operator for streaming input information about station of any type 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in</entry>
+                                <entry>
+<para>The input stream </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>sample</entry>
+                                <entry>
+<para>A constant reference to an instance of the station </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Reference to a stream </para>
+</formalpara>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/79192/source/repos/Metro_line/Station_discriptors/Station_discriptors.h</section>
+</section>

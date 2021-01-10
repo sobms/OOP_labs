@@ -1,0 +1,168 @@
+\hypertarget{class_metro__line_1_1_station}{}\doxysection{Metro\+\_\+line\+::Station Class Reference}
+\label{class_metro__line_1_1_station}\index{Metro\_line::Station@{Metro\_line::Station}}
+
+
+Inheritance diagram for Metro\+\_\+line\+::Station\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{class_metro__line_1_1_station__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_metro__line_1_1_station_a962a5e4e08c0e3680d8abf2d03a52ab9}{Station}} (std\+::string default\+\_\+name=\char`\"{}undefined\char`\"{})
+\item 
+std\+::string \mbox{\hyperlink{class_metro__line_1_1_station_a33f37e1396975b7dc816c402cbc7a5e1}{get\+\_\+name}} () const
+\item 
+\mbox{\hyperlink{class_metro__line_1_1_station}{Station}} \& \mbox{\hyperlink{class_metro__line_1_1_station_a262b9407081e29b4fe2b80b34656b3e3}{change\+\_\+name}} (const std\+::string \&name2)
+\item 
+std\+::string \mbox{\hyperlink{class_metro__line_1_1_station_af814abb46a3e70f568540c291d8ba50c}{get\+\_\+type}} () const
+\item 
+virtual \mbox{\hyperlink{class_metro__line_1_1_station}{Station}} $\ast$ \mbox{\hyperlink{class_metro__line_1_1_station_ae697c0773971b9b27d88f6173930acac}{copy}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::ostream \& \mbox{\hyperlink{class_metro__line_1_1_station_ad166a0b38c8ca6167825a11def011676}{show\+\_\+info}} (std\+::ostream \&out) const
+\item 
+virtual std\+::istream \& \mbox{\hyperlink{class_metro__line_1_1_station_a76cf34b39ddb7c8f2100dfbdca641b1e}{get}} (std\+::istream \&in)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_metro__line_1_1_station}{Station}} $\ast$ \mbox{\hyperlink{class_metro__line_1_1_station_a9126304009e75d56fdbb33519f461eab}{change\+\_\+type}} (const \mbox{\hyperlink{class_metro__line_1_1_station}{Station}} $\ast$st)
+\item 
+\mbox{\Hypertarget{class_metro__line_1_1_station_a6966c4810bacc2a6ec1bc632af130e29}\label{class_metro__line_1_1_station_a6966c4810bacc2a6ec1bc632af130e29}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&out, const \mbox{\hyperlink{class_metro__line_1_1_station}{Station}} \&sample)
+\item 
+std\+::istream \& \mbox{\hyperlink{class_metro__line_1_1_station_a6891611b5ac5c57ca160ae402fc1a0e4}{operator$>$$>$}} (std\+::istream \&in, \mbox{\hyperlink{class_metro__line_1_1_station}{Station}} \&sample)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_metro__line_1_1_station_a962a5e4e08c0e3680d8abf2d03a52ab9}\label{class_metro__line_1_1_station_a962a5e4e08c0e3680d8abf2d03a52ab9}} 
+\index{Metro\_line::Station@{Metro\_line::Station}!Station@{Station}}
+\index{Station@{Station}!Metro\_line::Station@{Metro\_line::Station}}
+\doxysubsubsection{\texorpdfstring{Station()}{Station()}}
+{\footnotesize\ttfamily Metro\+\_\+line\+::\+Station\+::\+Station (\begin{DoxyParamCaption}\item[{std\+::string}]{default\+\_\+name = {\ttfamily \char`\"{}undefined\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Empty constructor+initializing constructor 
+\begin{DoxyParams}{Parameters}
+{\em default\+\_\+name} & Name of created station \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_metro__line_1_1_station_a262b9407081e29b4fe2b80b34656b3e3}\label{class_metro__line_1_1_station_a262b9407081e29b4fe2b80b34656b3e3}} 
+\index{Metro\_line::Station@{Metro\_line::Station}!change\_name@{change\_name}}
+\index{change\_name@{change\_name}!Metro\_line::Station@{Metro\_line::Station}}
+\doxysubsubsection{\texorpdfstring{change\_name()}{change\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_metro__line_1_1_station}{Station}}\& Metro\+\_\+line\+::\+Station\+::change\+\_\+name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name2} & Name to replace the current one \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to an instance of the base class 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_metro__line_1_1_station_ae697c0773971b9b27d88f6173930acac}\label{class_metro__line_1_1_station_ae697c0773971b9b27d88f6173930acac}} 
+\index{Metro\_line::Station@{Metro\_line::Station}!copy@{copy}}
+\index{copy@{copy}!Metro\_line::Station@{Metro\_line::Station}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_metro__line_1_1_station}{Station}}$\ast$ Metro\+\_\+line\+::\+Station\+::copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Virtual function to create copy of pointer on specific class \begin{DoxyReturn}{Returns}
+Pointer on \mbox{\hyperlink{class_metro__line_1_1_station}{Station}} class 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_metro__line_1_1_transfer__node_adcead7c890f6d3b8cdd3e7dfcfceb74e}{Metro\+\_\+line\+::\+Transfer\+\_\+node}}, and \mbox{\hyperlink{class_metro__line_1_1_crossing__station_a1296ba3d1a418a207fdeceb0c51011d8}{Metro\+\_\+line\+::\+Crossing\+\_\+station}}.
+
+\mbox{\Hypertarget{class_metro__line_1_1_station_a76cf34b39ddb7c8f2100dfbdca641b1e}\label{class_metro__line_1_1_station_a76cf34b39ddb7c8f2100dfbdca641b1e}} 
+\index{Metro\_line::Station@{Metro\_line::Station}!get@{get}}
+\index{get@{get}!Metro\_line::Station@{Metro\_line::Station}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily virtual std\+::istream\& Metro\+\_\+line\+::\+Station\+::get (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Virtual function to using in Streaming intput \textbackslash{}params out Reference to the intput stream \begin{DoxyReturn}{Returns}
+Reference to intput stream 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_metro__line_1_1_transfer__node_a38196a98640250b427ad175ffdf66731}{Metro\+\_\+line\+::\+Transfer\+\_\+node}}, and \mbox{\hyperlink{class_metro__line_1_1_crossing__station_a39ffafb993ec1ed29c8c3d48f1c2f213}{Metro\+\_\+line\+::\+Crossing\+\_\+station}}.
+
+\mbox{\Hypertarget{class_metro__line_1_1_station_a33f37e1396975b7dc816c402cbc7a5e1}\label{class_metro__line_1_1_station_a33f37e1396975b7dc816c402cbc7a5e1}} 
+\index{Metro\_line::Station@{Metro\_line::Station}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!Metro\_line::Station@{Metro\_line::Station}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily std\+::string Metro\+\_\+line\+::\+Station\+::get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+The name of the created line 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_metro__line_1_1_station_af814abb46a3e70f568540c291d8ba50c}\label{class_metro__line_1_1_station_af814abb46a3e70f568540c291d8ba50c}} 
+\index{Metro\_line::Station@{Metro\_line::Station}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!Metro\_line::Station@{Metro\_line::Station}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily std\+::string Metro\+\_\+line\+::\+Station\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+Type of station as string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_metro__line_1_1_station_ad166a0b38c8ca6167825a11def011676}\label{class_metro__line_1_1_station_ad166a0b38c8ca6167825a11def011676}} 
+\index{Metro\_line::Station@{Metro\_line::Station}!show\_info@{show\_info}}
+\index{show\_info@{show\_info}!Metro\_line::Station@{Metro\_line::Station}}
+\doxysubsubsection{\texorpdfstring{show\_info()}{show\_info()}}
+{\footnotesize\ttfamily virtual std\+::ostream\& Metro\+\_\+line\+::\+Station\+::show\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Virtual function to using in Streaming output \textbackslash{}params out Reference to the output stream \begin{DoxyReturn}{Returns}
+Reference to output stream 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_metro__line_1_1_transfer__node_a398fbd2dce3583029e5ba4fa2955556a}{Metro\+\_\+line\+::\+Transfer\+\_\+node}}, and \mbox{\hyperlink{class_metro__line_1_1_crossing__station_a1aa3a78b1987ae1270c7a4dac4df77e8}{Metro\+\_\+line\+::\+Crossing\+\_\+station}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_metro__line_1_1_station_a9126304009e75d56fdbb33519f461eab}\label{class_metro__line_1_1_station_a9126304009e75d56fdbb33519f461eab}} 
+\index{Metro\_line::Station@{Metro\_line::Station}!change\_type@{change\_type}}
+\index{change\_type@{change\_type}!Metro\_line::Station@{Metro\_line::Station}}
+\doxysubsubsection{\texorpdfstring{change\_type}{change\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_metro__line_1_1_station}{Station}}$\ast$ change\+\_\+type (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_metro__line_1_1_station}{Station}} $\ast$}]{st }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Friend-\/class function 
+\begin{DoxyParams}{Parameters}
+{\em st} & Constant pointer to the base class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the base class 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_metro__line_1_1_station_a6891611b5ac5c57ca160ae402fc1a0e4}\label{class_metro__line_1_1_station_a6891611b5ac5c57ca160ae402fc1a0e4}} 
+\index{Metro\_line::Station@{Metro\_line::Station}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Metro\_line::Station@{Metro\_line::Station}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{\mbox{\hyperlink{class_metro__line_1_1_station}{Station}} \&}]{sample }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Operator for streaming input information about station of any type 
+\begin{DoxyParams}{Parameters}
+{\em in} & The input stream \\
+\hline
+{\em sample} & A constant reference to an instance of the station \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to a stream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/79192/source/repos/\+Metro\+\_\+line/\+Station\+\_\+discriptors/Station\+\_\+discriptors.\+h\end{DoxyCompactItemize}
